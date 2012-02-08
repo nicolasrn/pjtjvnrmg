@@ -20,6 +20,7 @@ using FarseerPhysics.Collision.Shapes;
 
 using GameStateManagement;
 using Projet.Element_de_Jeu.Visiteur;
+using Projet.Element_de_Jeu.Composites;
 
 namespace Projet
 {
@@ -39,6 +40,7 @@ namespace Projet
         private KeyboardState lastKeyboardState;
         private KeyboardState currentKeyboardState;
 
+        private World world;
         //ScreenManager screenManager;
 
         public Game1()
@@ -69,6 +71,8 @@ namespace Projet
             graphics.PreferredBackBufferWidth = 600;
 
             graphics.ApplyChanges();
+
+            world = new World(new Vector2(0, 20));
 
             barre = new BarreDeChargement();
 
@@ -163,6 +167,8 @@ namespace Projet
 
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
+
+            world.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
 
             lastKeyboardState = currentKeyboardState;
             currentKeyboardState = Keyboard.GetState();

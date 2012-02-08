@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 
+using Projet.Element_de_Jeu.Composites;
+
 namespace Projet.Element_de_Jeu.Visiteur
 {
     public interface IVisiteurComposite

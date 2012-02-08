@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Projet.Element_de_Jeu.Composites;
 
 namespace Projet.Element_de_Jeu.Visiteur
 {

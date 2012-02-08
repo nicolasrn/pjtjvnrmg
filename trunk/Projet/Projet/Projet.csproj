@@ -115,7 +115,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Element de Jeu\BarreDeChargement.cs" />
-    <Compile Include="Element de Jeu\Composite.cs" />
+    <Compile Include="Element de Jeu\Composites\Bille.cs" />
+    <Compile Include="Element de Jeu\Composites\Corde.cs" />
+    <Compile Include="Element de Jeu\Composites\ListeObjet.cs" />
+    <Compile Include="Element de Jeu\Composites\ObjetTexture.cs" />
+    <Compile Include="Element de Jeu\Composites\Composite.cs" />
+    <Compile Include="Element de Jeu\Composites\Planche.cs" />
     <Compile Include="Element de Jeu\IDessiner.cs" />
     <Compile Include="Element de Jeu\Selection.cs" />
     <Compile Include="Element de Jeu\Visiteur\DrawVisiteur.cs" />

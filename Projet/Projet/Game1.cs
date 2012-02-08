@@ -19,6 +19,7 @@ using FarseerPhysics.Dynamics;
 using FarseerPhysics.Collision.Shapes;
 
 using GameStateManagement;
+using Projet.Element_de_Jeu.Visiteur;
 
 namespace Projet
 {
@@ -95,13 +96,13 @@ namespace Projet
             //ici c'est la racine pour éviter le redimensionnement on utilise le constructeur qui définit un rectangle null (toutes les valeurs sont à 0)
             listeObjet = new ListeObjet(graphics);
 
-            //ListeObjet lBille = new ListeObjet(new Rectangle(50, 50, 100, 100));
-            //lBille.Add(b = new Bille(new Rectangle(0, 0, 100, 100)));
+            ListeObjet lBille = new ListeObjet(new Rectangle(150, 150, 100, 100));
+            lBille.Add(b = new Bille(new Rectangle(0, 0, 100, 100)));
 
             listeObjet.Add(objb);
             listeObjet.Add(obja);
-            //listeObjet.Add(lBille);
-            //selectionnable.Add(b);
+            listeObjet.Add(lBille);
+            selectionnable.Add(b);
             //*/
             /*
             using (StreamWriter wr = new StreamWriter("test.xml"))
@@ -185,7 +186,12 @@ namespace Projet
             GraphicsDevice.Clear(Color.White);
 
             // TODO : ajouter le code de dessin ici
-            listeObjet.Dessiner(spriteBatch);
+            //listeObjet.Dessiner(spriteBatch);
+
+            //IVisiteurComposite visiteur = new DrawVisiteur(spriteBatch, graphics);
+            IVisiteurComposite visiteur = new DrawVisiteurFarseer(spriteBatch, graphics);
+
+            listeObjet.accept(visiteur);
             //selectionnable.dessiner(spriteBatch);
             //barre.dessiner(spriteBatch);
 

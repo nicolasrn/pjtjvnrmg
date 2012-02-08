@@ -31,13 +31,13 @@ namespace Projet.Element_de_Jeu
             get { return rect; }
             set { rect = value; }
         }
-        /*
+        
         public Texture2D Texture
         {
             get { return texture; }
             set { texture = value; }
         }
-        */
+        
         public String TextureName
         {
             get { return textureName; }
@@ -78,17 +78,10 @@ namespace Projet.Element_de_Jeu
         protected abstract void init(ContentManager Content);
 
         /// <summary>
-        /// méthode permettant de dessiner les textures
+        /// met en application le pattern visiteur
         /// </summary>
-        /// <param name="spriteBatch">Pour le dessin des textures</param>
-        protected abstract void dessiner(SpriteBatch spriteBatch);
-
-        /// <summary>
-        /// méthode permettant de dessiner les textures
-        /// </summary>
-        /// <param name="spriteBatch">Pour le dessin des textures</param>
-        /// <param name="zone">pour dessiner dans une zone contraignant rect</param>
-        protected abstract void dessiner(SpriteBatch spriteBatch, Rectangle zone);
+        /// <param name="visiteur">l'objet qui visite</param>
+        public abstract void accept(Visiteur.IVisiteurComposite visiteur, Rectangle zone);
 
         /// <summary>
         /// Pour le chargement des images
@@ -97,25 +90,6 @@ namespace Projet.Element_de_Jeu
         public void Initialize(ContentManager Content)
         {
             this.init(Content);
-        }
-
-        /// <summary>
-        /// Pour le dessin des textures
-        /// </summary>
-        /// <param name="spriteBatch">pour dessiner</param>
-        public void Dessiner(SpriteBatch spriteBatch)
-        {
-            this.dessiner(spriteBatch);
-        }
-
-        /// <summary>
-        /// Pour le dessin des textures
-        /// </summary>
-        /// <param name="spriteBatch">pour dessiner</param>
-        /// <param name="zone">pour dessiner dans zone restreinte du rect</param>
-        public void Dessiner(SpriteBatch spriteBatch, Rectangle zone)
-        {
-            this.dessiner(spriteBatch, zone);
         }
 
     }
@@ -150,33 +124,9 @@ namespace Projet.Element_de_Jeu
             this.texture = Content.Load<Texture2D>(this.textureName);
         }
 
-        /// <summary>
-        /// dessine l'objet
-        /// </summary>
-        /// <param name="spriteBatch">pour dessiner l'objet</param>
-        protected override void dessiner(SpriteBatch spriteBatch)
+        public override void accept(Visiteur.IVisiteurComposite visiteur, Rectangle zone)
         {
-            spriteBatch.Begin();
-            spriteBatch.Draw(this.texture, rect, Color.White);
-            spriteBatch.End();
-        }
-
-        /// <summary>
-        /// méthode permettant de dessiner les textures
-        /// </summary>
-        /// <param name="spriteBatch">Pour le dessin des textures</param>
-        /// <param name="zone">pour dessiner dans une zone contraignant rect</param>
-        protected override void dessiner(SpriteBatch spriteBatch, Rectangle zone)
-        {
-            double x = Math.Floor(zone.X + rect.X / 100.0 * zone.Width);
-            double y = Math.Floor(zone.Y + rect.Y / 100.0 * zone.Height);
-            double w = Math.Floor(rect.Width / 100.0 * zone.Width);
-            double h = Math.Floor(rect.Height / 100.0 * zone.Height);
-            rectangleCourant = new Rectangle((int)x, (int)y, (int)w, (int)h);
-
-            spriteBatch.Begin();
-            spriteBatch.Draw(this.texture, rectangleCourant, Color.White);
-            spriteBatch.End();
+            visiteur.visit(this, (zone.X == 0 && zone.Y == 0 && zone.Width == 0 && zone.Height == 0 ? rect : zone));
         }
     }
 
@@ -352,36 +302,14 @@ namespace Projet.Element_de_Jeu
                 obj.Initialize(Content);
         }
 
-        /// <summary>
-        /// dessine l'objet
-        /// </summary>
-        /// <param name="spriteBatch">pour dessiner l'objet</param>
-        protected override void dessiner(SpriteBatch spriteBatch)
+        public override void accept(Visiteur.IVisiteurComposite visiteur, Rectangle zone)
         {
-            dessiner(spriteBatch, rect);
+            visiteur.visit(this, zone);
         }
 
-        /// <summary>
-        /// dessine l'objet
-        /// </summary>
-        /// <param name="spriteBatch">pour dessiner l'objet</param>
-        /// <param name="zone">avec restriction de zone</param>
-        protected override void dessiner(SpriteBatch spriteBatch, Rectangle zone)
+        public void accept(Visiteur.IVisiteurComposite visiteur)
         {
-            if (graphics != null)
-            {
-                spriteBatch.Begin();
-                spriteBatch.Draw(texture, new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight), Color.White);
-                spriteBatch.End();
-            }
-
-            foreach (ObjetCompositeAbstrait obj in list)
-            {
-                if (zone.X == 0 && zone.Y == 0 && zone.Width == 0 && zone.Height == 0) //si l'objet que l'on traite n'a pas de zone on affiche normalement
-                    obj.Dessiner(spriteBatch);
-                else
-                    obj.Dessiner(spriteBatch, zone);
-            }
+            visiteur.visit(this, rect);
         }
     }
 }

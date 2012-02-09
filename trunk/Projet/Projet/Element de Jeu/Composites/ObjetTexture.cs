@@ -17,16 +17,16 @@ namespace Projet.Element_de_Jeu.Composites
         /// <summary>
         /// Constructeur utilisant le nom de la texture
         /// </summary>
-        /// <param name="textureName">le nom de la texture</param>
-        public ObjetTexture(String textureName, Rectangle rect)
-            : base(rect)
-        {
-            this.texture = null;
-            this.textureName = textureName;
-        }
-
         public ObjetTexture()
-            : base(new Rectangle(0, 0, 0, 0))
+            : base()
+        {
+        }
+         
+        /// <summary>
+        /// Constructeur utilisant le nom de la texture
+        /// </summary>
+        public ObjetTexture(String textureName)
+            : base(textureName)
         {
         }
 
@@ -36,13 +36,18 @@ namespace Projet.Element_de_Jeu.Composites
         /// <param name="Content">pour l'acces à la méthode Load</param>
         protected override void init(ContentManager Content)
         {
-            this.texture = Content.Load<Texture2D>(this.textureName);
+            this.texture = Content.Load<Texture2D>(textureName);
+            this.Item.Texture = this.Texture;
         }
 
-        public override void accept(Visiteur.IVisiteurComposite visiteur, Rectangle zone)
+        protected override void dessin(SpriteBatch spriteBatch)
         {
-            visiteur.visit(this, (zone.X == 0 && zone.Y == 0 && zone.Width == 0 && zone.Height == 0 ? rect : zone));
+            item.draw(spriteBatch);
+        }
+
+        protected override void update()
+        {
+            item.update();
         }
     }
-
 }

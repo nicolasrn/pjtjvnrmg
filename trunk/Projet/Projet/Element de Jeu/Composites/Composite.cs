@@ -12,6 +12,8 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Xml.Serialization;
 
+using Projet.HelperFarseerObject;
+
 namespace Projet.Element_de_Jeu.Composites
 {
     /// <summary>
@@ -21,43 +23,26 @@ namespace Projet.Element_de_Jeu.Composites
     [XmlInclude(typeof(ObjetTexture)), XmlInclude(typeof(Corde)), XmlInclude(typeof(Planche)), XmlInclude(typeof(ListeObjet)), XmlInclude(typeof(Bille))]
     public abstract class ObjetCompositeAbstrait
     {
-        protected Rectangle rect;
-        protected Texture2D texture;
+        protected FarseerObject item;
         protected String textureName;
-        protected Rectangle rectangleCourant;
+        protected Texture2D texture;
 
-        public Rectangle Rect
+        public FarseerObject Item
         {
-            get { return rect; }
-            set { rect = value; }
+            get { return item; }
+            set { item = value; }
         }
-        
+
         public Texture2D Texture
         {
             get { return texture; }
             set { texture = value; }
         }
-        
+
         public String TextureName
         {
-            get { return textureName; }
-            set { textureName = value; }
-        }
-
-        public Rectangle RectangleCourant
-        {
-            get { return rectangleCourant; }
-            set { rectangleCourant = value; }
-        }
-
-        /// <summary>
-        /// Constructeur
-        /// </summary>
-        /// <param name="rect">le rectangle englobant la zone de dessin</param>
-        public ObjetCompositeAbstrait(Rectangle rect)
-        {
-            this.rect = rect;
-            rectangleCourant = new Rectangle(0, 0, 0, 0);
+            get { return TextureName; }
+            set { TextureName = value; }
         }
 
         /// <summary>
@@ -65,12 +50,22 @@ namespace Projet.Element_de_Jeu.Composites
         /// </summary>
         public ObjetCompositeAbstrait()
         {
-            this.rect = new Rectangle(0, 0, 0, 0);
-            this.RectangleCourant = new Rectangle(0, 0, 0, 0);
-            this.texture = null;
-            this.textureName = "";
+            item = null;
+            texture = null;
+            textureName = null;
         }
 
+        /// <summary>
+        /// constructeur par défaut initialise les rectangles avec 0 partout, texture a null, et les chaines a chaine vide
+        /// </summary>
+        /// <param name="TextureName">le nom de la texture</param>
+        public ObjetCompositeAbstrait(String textureName)
+        {
+            item = null;
+            texture = null;
+            this.textureName = textureName;
+        }
+        
         /// <summary>
         /// méthode permettant d'initialiser une texture
         /// </summary>
@@ -78,10 +73,15 @@ namespace Projet.Element_de_Jeu.Composites
         protected abstract void init(ContentManager Content);
 
         /// <summary>
-        /// met en application le pattern visiteur
+        /// méthode permettant l'affichage
         /// </summary>
-        /// <param name="visiteur">l'objet qui visite</param>
-        public abstract void accept(Visiteur.IVisiteurComposite visiteur, Rectangle zone);
+        /// <param name="Content">Pour le chargement des texture</param>
+        protected abstract void dessin(SpriteBatch spriteBatch);
+
+        /// <summary>
+        /// méthode permettant la mise a jour des données
+        /// </summary>
+        protected abstract void update();
 
         /// <summary>
         /// Pour le chargement des images
@@ -90,6 +90,23 @@ namespace Projet.Element_de_Jeu.Composites
         public void Initialize(ContentManager Content)
         {
             this.init(Content);
+        }
+
+        /// <summary>
+        /// Pour le dessin des images
+        /// </summary>
+        /// <param name="spriteBatch">pour dessinner</param>
+        public void Dessin(SpriteBatch spriteBatch)
+        {
+            this.dessin(spriteBatch);
+        }
+
+        /// <summary>
+        /// méthode permettant la mise a jout des données
+        /// </summary>
+        public void Update()
+        {
+            this.update();
         }
     }
 }

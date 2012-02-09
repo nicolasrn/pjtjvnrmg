@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Projet.HelperFarseerObject;
 
 namespace Projet.Element_de_Jeu.Composites
 {
@@ -15,16 +16,18 @@ namespace Projet.Element_de_Jeu.Composites
         /// <summary>
         /// Constructeur
         /// </summary>
-        /// <param name="rect">le rectangle d'affichage</param>
-        public Planche(Rectangle rect)
-            : base("planche", rect)
+        public Planche(float x, float y, float width, float height)
+            : base("planche")
         {
-        }
-
-        public Planche()
-            : base("planche", new Rectangle(0, 0, 0, 0))
-        {
+            item = new FarseerObject(
+                SingletonWorld.getInstance().getWorld(),
+                FarseerObject.FarseerObjectType.Box,
+                x,
+                y,
+                width,
+                height,
+                new Rectangle(0, 0, 48, 7));
+            //item.Fixture.Body.BodyType = FarseerPhysics.Dynamics.BodyType.Dynamic;
         }
     }
-
 }

@@ -5,6 +5,9 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using FarseerPhysics.Dynamics.Joints;
+using FarseerPhysics.Factories;
+using Projet.HelperFarseerObject;
 
 namespace Projet.Element_de_Jeu.Composites
 {
@@ -18,25 +21,29 @@ namespace Projet.Element_de_Jeu.Composites
 
         private GraphicsDeviceManager graphics;
 
+        private Rectangle rect;
+
         /// <summary>
         /// constructeur
         /// <param name="rect">le rectangle d'affichage</param>
         /// </summary>
-        public ListeObjet(Rectangle rect)
-            : base(rect)
+        public ListeObjet(Rectangle rect, String textureName = null, GraphicsDeviceManager graphics = null)
+            : base(textureName)
         {
             list = new List<ObjetCompositeAbstrait>();
-            this.graphics = null;
+            this.graphics = graphics;
+            this.rect = rect;
         }
 
         /// <summary>
         /// constructeur
-        /// <param name="graphics">pour savoir comment dessiner le fond</param>
+        /// <param name="rect">le rectangle d'affichage</param>
         /// </summary>
-        public ListeObjet(GraphicsDeviceManager graphics)
-            : base()
+        public ListeObjet(String textureName, GraphicsDeviceManager graphics)
+            : base(textureName)
         {
             list = new List<ObjetCompositeAbstrait>();
+            this.rect = new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             this.graphics = graphics;
         }
 
@@ -49,6 +56,7 @@ namespace Projet.Element_de_Jeu.Composites
         {
             list = null;
             this.graphics = null;
+            rect = Rectangle.Empty;
         }
 
         /*[XmlArrayItem("ObjetCompositeAbstrait", typeof(ObjetCompositeAbstrait))]
@@ -91,19 +99,25 @@ namespace Projet.Element_de_Jeu.Composites
         protected override void init(ContentManager Content)
         {
             if (graphics != null)
-                texture = Content.Load<Texture2D>("NiveauBanquise");
+                texture = Content.Load<Texture2D>(textureName);
+
             foreach (ObjetCompositeAbstrait obj in list)
                 obj.Initialize(Content);
         }
 
-        public override void accept(Visiteur.IVisiteurComposite visiteur, Rectangle zone)
+        protected override void dessin(SpriteBatch spriteBatch)
         {
-            visiteur.visit(this, zone);
+            if (graphics != null)
+                spriteBatch.Draw(texture, rect, Color.White);
+
+            foreach (ObjetCompositeAbstrait o in list)
+                o.Dessin(spriteBatch);
         }
 
-        public void accept(Visiteur.IVisiteurComposite visiteur)
+        protected override void update()
         {
-            visiteur.visit(this, rect);
+            foreach (ObjetCompositeAbstrait o in list)
+                o.Update();
         }
     }
 }

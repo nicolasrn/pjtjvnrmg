@@ -16,10 +16,10 @@ namespace Projet.Element_de_Jeu
         /// propriété pour récupérer la taille de la texture affiché a l'écran 
         /// retourne un rectangle null si l'affichage proportionnel n'est pas activé
         /// </summary>
-        Rectangle Bounds
+        /*Rectangle Bounds
         {
             get;
-        }
+        }*/
     }
 
     /// <summary>
@@ -102,9 +102,9 @@ namespace Projet.Element_de_Jeu
         /// <param name="spriteBatch">pour dessiner la texture</param>
         public void dessiner(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin();
-            spriteBatch.Draw(texture, new Rectangle(courant.Bounds.X - 15, courant.Bounds.Y - 5, courant.Bounds.Width + 5, courant.Bounds.Height + 5), new Color(255, 255, 255, 50));
-            spriteBatch.End();
+            //spriteBatch.Begin();
+            //spriteBatch.Draw(texture, new Rectangle(courant.Bounds.X - 15, courant.Bounds.Y - 5, courant.Bounds.Width + 5, courant.Bounds.Height + 5), new Color(255, 255, 255, 50));
+            //spriteBatch.End();
         }
     }
 }

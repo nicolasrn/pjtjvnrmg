@@ -123,10 +123,8 @@
     <Compile Include="Element de Jeu\Composites\Planche.cs" />
     <Compile Include="Element de Jeu\IDessiner.cs" />
     <Compile Include="Element de Jeu\Selection.cs" />
-    <Compile Include="Element de Jeu\Visiteur\DrawVisiteur.cs" />
-    <Compile Include="Element de Jeu\Visiteur\DrawVisiteurFarseer.cs" />
-    <Compile Include="Element de Jeu\Visiteur\IVisiteurComposite.cs" />
-    <Compile Include="Farseer\FarseerObject.cs" />
+    <Compile Include="HelperFarseerObject\FarseerObject.cs" />
+    <Compile Include="HelperFarseerObject\SingletonWorld.cs" />
     <Compile Include="Time\Time.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />

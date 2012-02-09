@@ -13,14 +13,15 @@ using Projet.Element_de_Jeu;
 using Projet.Time;
 using System.IO;
 
-using Projet.FarseerObject;
+using Projet.HelperFarseerObject;
 using FarseerPhysics;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Collision.Shapes;
 
 using GameStateManagement;
-using Projet.Element_de_Jeu.Visiteur;
 using Projet.Element_de_Jeu.Composites;
+using FarseerPhysics.Dynamics.Joints;
+using FarseerPhysics.Factories;
 
 namespace Projet
 {
@@ -33,14 +34,13 @@ namespace Projet
         private SpriteBatch spriteBatch;
 
         private BarreDeChargement barre;
-        private ListeObjet listeObjet, obja, objb;
+        private ListeObjet listeObjet, obja, objb, lBille;
 
         private Selectionnable selectionnable;
 
         private KeyboardState lastKeyboardState;
         private KeyboardState currentKeyboardState;
 
-        private World world;
         //ScreenManager screenManager;
 
         public Game1()
@@ -72,41 +72,58 @@ namespace Projet
 
             graphics.ApplyChanges();
 
-            world = new World(new Vector2(0, 20));
+            SingletonWorld.getInstance().getWorld();
 
             barre = new BarreDeChargement();
 
             selectionnable = new Selectionnable();
             //*
-            Corde c;
-            Bille b;
+            Corde b, c;
+            ObjetCompositeAbstrait d;
             //nomenclature : par ce constructeur le rectangle de obja va contenir les "fils" de l'objet.
             //ces fils s'ettendront proportionnelement à la taille dispo 
-            obja = new ListeObjet(new Rectangle(20, 10, 50, 50));
+            obja = new ListeObjet(new Rectangle(0, 0, 0, 0));
             //toutes les valeurs des rectangles des objets fils indique la taille proportionnel par rapport au père
-            obja.Add((c = new Corde(new Rectangle(0, 0, 25, 95))));
-            selectionnable.Add(c);
-            obja.Add((c = new Corde(new Rectangle(80, 0, 25, 95))));
-            selectionnable.Add(c);
-            obja.Add(new Planche(new Rectangle(0, 95, 100, 25)));
+            obja.Add(b = new Corde(1.10f, 0.75f, 0.25f, 1f)); 
+            //selectionnable.Add(c);
+            obja.Add(c = new Corde(1.95f, 0.75f, 0.25f, 1f));
+            //selectionnable.Add(d);
+            obja.Add(d = new Planche(1.5f, 1.38f, 1f, 0.25f));
+            b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), b.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(-0.4f, 0));
+            c.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), c.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(0.45f, 0));
+            //c.Joint.CollideConnected = false;
+            //c.Joint.LocalAnchorA = Vector2.Zero;
+            //c.Joint.LocalAnchorB = Vector2.Zero;
+            b.Joint.Enabled = false;
+            //c.Joint.Enabled = false;
+            //b.Joint.Enabled = false;
+            //obja.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), c.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(0, 0));
 
             objb = new ListeObjet(new Rectangle(40, 70, 80, 80));
-            objb.Add((c = new Corde(new Rectangle(0, 0, 5, 95))));
-            selectionnable.Add(c);
-            objb.Add((c = new Corde(new Rectangle(95, 0, 5, 95))));
-            selectionnable.Add(c);
-            objb.Add(new Planche(new Rectangle(0, 95, 100, 5)));
-            
+            objb.Add(b = new Corde(1.10f+3, 0.75f+3, 0.25f, 1f));
+            //selectionnable.Add(c);
+            objb.Add(c = new Corde(1.95f+3, 0.75f+3, 0.25f, 1f));
+            //selectionnable.Add(d);
+            objb.Add(d = new Planche(1.5f+3, 1.38f+3, 1f, 0.25f));
+            b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), b.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(0, 0));
+            c.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), c.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(0, 0));
+            //objb.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), c.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(0, 0));
+
             //ici c'est la racine pour éviter le redimensionnement on utilise le constructeur qui définit un rectangle null (toutes les valeurs sont à 0)
-            listeObjet = new ListeObjet(graphics);
+            listeObjet = new ListeObjet("NiveauBanquise", graphics);
 
-            ListeObjet lBille = new ListeObjet(new Rectangle(150, 150, 100, 100));
-            lBille.Add(b = new Bille(new Rectangle(0, 0, 100, 100)));
-
+            lBille = new ListeObjet(new Rectangle(150, 150, 100, 100));
+            lBille.Add(b = new Corde(3f, 2f, 0.25f, 1.25f));
+            lBille.Add(d = new Bille(3f, 3f, 1f, 1f));
+            b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), b.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(0, 0));
+            b.Joint.Enabled = true;
+            //lBille.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), c.Item.Fixture.Body, b.Item.Fixture.Body, new Vector2(0, 0));
+            //lBille.Joint.Enabled = false;
+            
             listeObjet.Add(objb);
             listeObjet.Add(obja);
             listeObjet.Add(lBille);
-            selectionnable.Add(b);
+            //selectionnable.Add(b);
             //*/
             /*
             using (StreamWriter wr = new StreamWriter("test.xml"))
@@ -168,13 +185,17 @@ namespace Projet
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
-            world.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
+            SingletonWorld.getInstance().getWorld().Step((float)gameTime.ElapsedGameTime.TotalSeconds);
+            listeObjet.Update();
 
             lastKeyboardState = currentKeyboardState;
             currentKeyboardState = Keyboard.GetState();
 
             if (lastKeyboardState.IsKeyUp(Keys.Right) && currentKeyboardState.IsKeyDown(Keys.Right))
+            {
                 selectionnable.suivant();
+                //lBille.Joint.;
+            }
             else if (lastKeyboardState.IsKeyUp(Keys.Left) && currentKeyboardState.IsKeyDown(Keys.Left))
                 selectionnable.precedant();
 
@@ -195,11 +216,14 @@ namespace Projet
             //listeObjet.Dessiner(spriteBatch);
 
             //IVisiteurComposite visiteur = new DrawVisiteur(spriteBatch, graphics);
-            IVisiteurComposite visiteur = new DrawVisiteurFarseer(spriteBatch, graphics);
+            //IVisiteurComposite visiteur = new DrawVisiteurFarseer(spriteBatch, graphics);
 
-            listeObjet.accept(visiteur);
+            spriteBatch.Begin();
+            //listeObjet.accept(visiteur);
+            listeObjet.Dessin(spriteBatch);
             //selectionnable.dessiner(spriteBatch);
             //barre.dessiner(spriteBatch);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }

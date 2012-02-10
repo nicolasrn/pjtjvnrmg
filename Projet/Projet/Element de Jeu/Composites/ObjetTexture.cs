@@ -14,6 +14,8 @@ namespace Projet.Element_de_Jeu.Composites
     [Serializable]
     public abstract class ObjetTexture : ObjetCompositeAbstrait
     {
+        protected float x, y, width, height;
+
         /// <summary>
         /// Constructeur utilisant le nom de la texture
         /// </summary>
@@ -25,9 +27,33 @@ namespace Projet.Element_de_Jeu.Composites
         /// <summary>
         /// Constructeur utilisant le nom de la texture
         /// </summary>
-        public ObjetTexture(String textureName)
+        public ObjetTexture(String textureName, float x, float y, float width, float height)
             : base(textureName)
         {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+        }
+
+        public float X
+        {
+            get { return x; }
+        }
+
+        public float Y
+        {
+            get { return y; }
+        }
+
+        public float Width
+        {
+            get { return width; }
+        }
+
+        public float Height
+        {
+            get { return height; }
         }
 
         /// <summary>

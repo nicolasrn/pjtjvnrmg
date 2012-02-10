@@ -119,7 +119,7 @@
     <Compile Include="Element de Jeu\Composites\Corde.cs" />
     <Compile Include="Element de Jeu\Composites\ListeObjet.cs" />
     <Compile Include="Element de Jeu\Composites\ObjetTexture.cs" />
-    <Compile Include="Element de Jeu\Composites\Composite.cs" />
+    <Compile Include="Element de Jeu\Composites\ObjetCompositeAbstrait.cs" />
     <Compile Include="Element de Jeu\Composites\Planche.cs" />
     <Compile Include="Element de Jeu\IDessiner.cs" />
     <Compile Include="Element de Jeu\Selection.cs" />

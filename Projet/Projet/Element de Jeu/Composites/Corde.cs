@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 
 using Projet.HelperFarseerObject;
 using FarseerPhysics.Dynamics.Joints;
+using FarseerPhysics.Dynamics;
 
 namespace Projet.Element_de_Jeu.Composites
 {
@@ -13,15 +14,15 @@ namespace Projet.Element_de_Jeu.Composites
     /// Objet concret représentant une Corde
     /// </summary>
     [Serializable]
-    public class Corde : ObjetTexture
+    public class Corde : ObjetTexture, ISelectionnable
     {
-        private RevoluteJoint joint;
-
+        protected RevoluteJoint joint;
+        
         /// <summary>
         /// Constructeur
         /// </summary>
         public Corde(float x, float y, float width, float height)
-            : base("corde")
+            : base("corde", x, y, width, height)
         {
             item = new FarseerObject(
                 SingletonWorld.getInstance().getWorld(),
@@ -38,6 +39,31 @@ namespace Projet.Element_de_Jeu.Composites
         {
             get { return joint; }
             set { joint = value; }
+        }
+
+        public float BoundsX
+        {
+            get { return x; }
+        }
+
+        public float BoundsY
+        {
+            get { return y; }
+        }
+
+        public float BoundsWidth
+        {
+            get { return width; }
+        }
+
+        public float BoundsHeight
+        {
+            get { return height; }
+        }
+
+        public void Desactiver()
+        {
+            joint.Enabled = false;
         }
     }
 }

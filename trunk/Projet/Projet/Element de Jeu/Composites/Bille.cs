@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Projet.HelperFarseerObject;
+using FarseerPhysics.Dynamics;
 
 namespace Projet.Element_de_Jeu.Composites
 {
@@ -15,7 +16,7 @@ namespace Projet.Element_de_Jeu.Composites
         /// Constructeur
         /// </summary>
         public Bille(float x, float y, float width, float height)
-            : base("Ours")
+            : base("Ours", x, y, width, height)
         {
             item = new FarseerObject(
                 SingletonWorld.getInstance().getWorld(),

@@ -69,7 +69,6 @@ namespace Projet
             // TODO : ajouter la logique d’initialisation ici
             graphics.PreferredBackBufferHeight = 700;
             graphics.PreferredBackBufferWidth = 600;
-
             graphics.ApplyChanges();
 
             SingletonWorld.getInstance().getWorld();
@@ -79,47 +78,51 @@ namespace Projet
             selectionnable = new Selectionnable();
             //*
             Corde b, c;
-            ObjetCompositeAbstrait d;
+            ObjetTexture d;
             //nomenclature : par ce constructeur le rectangle de obja va contenir les "fils" de l'objet.
             //ces fils s'ettendront proportionnelement à la taille dispo 
             obja = new ListeObjet(new Rectangle(0, 0, 0, 0));
             //toutes les valeurs des rectangles des objets fils indique la taille proportionnel par rapport au père
             obja.Add(b = new Corde(1.10f, 0.75f, 0.25f, 1f)); 
-            //selectionnable.Add(c);
-            obja.Add(c = new Corde(1.95f, 0.75f, 0.25f, 1f));
-            //selectionnable.Add(d);
-            obja.Add(d = new Planche(1.5f, 1.38f, 1f, 0.25f));
-            b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), b.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(-0.4f, 0));
-            c.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), c.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(0.45f, 0));
-            //c.Joint.CollideConnected = false;
-            //c.Joint.LocalAnchorA = Vector2.Zero;
-            //c.Joint.LocalAnchorB = Vector2.Zero;
-            b.Joint.Enabled = false;
-            //c.Joint.Enabled = false;
+            obja.Add(c = new Corde(2.95f, 0.75f, 0.25f, 1f)); 
+            obja.Add(d = new Planche(2f, 1.38f, 2f, 0.25f));
+            b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), b.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(b.X - d.X, 0));
+            c.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), c.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(c.X - d.X, 0));
+            
+            selectionnable.Add(b);
+            selectionnable.Add(c);
+
             //b.Joint.Enabled = false;
+            //c.Joint.Enabled = false;
+
             //obja.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), c.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(0, 0));
 
             objb = new ListeObjet(new Rectangle(40, 70, 80, 80));
-            objb.Add(b = new Corde(1.10f+3, 0.75f+3, 0.25f, 1f));
-            //selectionnable.Add(c);
-            objb.Add(c = new Corde(1.95f+3, 0.75f+3, 0.25f, 1f));
-            //selectionnable.Add(d);
-            objb.Add(d = new Planche(1.5f+3, 1.38f+3, 1f, 0.25f));
-            b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), b.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(0, 0));
-            c.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), c.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(0, 0));
-            //objb.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), c.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(0, 0));
+            //*
+            objb.Add(b = new Corde(1.10f+1, 0.75f+2, 0.25f, 1f));
+            objb.Add(c = new Corde(2.95f+1, 0.75f+2, 0.25f, 1f));
+            objb.Add(d = new Planche(2f+1, 1.38f+2, 2f, 0.25f));
+            b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), b.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(b.X - d.X, 0));
+            c.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), c.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(c.X - d.X, 0));
+            selectionnable.Add(b);
+            selectionnable.Add(c);
 
+            //b.Joint.Enabled = false;
+            //c.Joint.Enabled = false;
+            
+            //*/
             //ici c'est la racine pour éviter le redimensionnement on utilise le constructeur qui définit un rectangle null (toutes les valeurs sont à 0)
             listeObjet = new ListeObjet("NiveauBanquise", graphics);
 
             lBille = new ListeObjet(new Rectangle(150, 150, 100, 100));
-            lBille.Add(b = new Corde(3f, 2f, 0.25f, 1.25f));
-            lBille.Add(d = new Bille(3f, 3f, 1f, 1f));
-            b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), b.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(0, 0));
-            b.Joint.Enabled = true;
+            lBille.Add(b = new Corde(1.5f, 0.10f, 0.25f, 1.25f));
+            lBille.Add(d = new Bille(1.5f, 0.5f, 0.5f, 0.5f));
+            selectionnable.Add(b);
+            b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), b.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(b.X - d.X, 0));
+            //b.Joint.Enabled = false;
             //lBille.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), c.Item.Fixture.Body, b.Item.Fixture.Body, new Vector2(0, 0));
             //lBille.Joint.Enabled = false;
-            
+            //b.Desactiver();
             listeObjet.Add(objb);
             listeObjet.Add(obja);
             listeObjet.Add(lBille);
@@ -184,20 +187,22 @@ namespace Projet
 
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
-
-            SingletonWorld.getInstance().getWorld().Step((float)gameTime.ElapsedGameTime.TotalSeconds);
-            listeObjet.Update();
-
+            
             lastKeyboardState = currentKeyboardState;
             currentKeyboardState = Keyboard.GetState();
 
             if (lastKeyboardState.IsKeyUp(Keys.Right) && currentKeyboardState.IsKeyDown(Keys.Right))
-            {
                 selectionnable.suivant();
-                //lBille.Joint.;
-            }
-            else if (lastKeyboardState.IsKeyUp(Keys.Left) && currentKeyboardState.IsKeyDown(Keys.Left))
+            if (lastKeyboardState.IsKeyUp(Keys.Left) && currentKeyboardState.IsKeyDown(Keys.Left))
                 selectionnable.precedant();
+            if (lastKeyboardState.IsKeyUp(Keys.Space) && currentKeyboardState.IsKeyDown(Keys.Space))
+                selectionnable.desactiver();
+
+            SingletonWorld.getInstance().getWorld().Step((float)gameTime.ElapsedGameTime.TotalSeconds);
+            
+            //selectionnable.Courant.Desactiver();
+
+            listeObjet.Update();
 
             barre.run(gameTime);
 
@@ -215,14 +220,10 @@ namespace Projet
             // TODO : ajouter le code de dessin ici
             //listeObjet.Dessiner(spriteBatch);
 
-            //IVisiteurComposite visiteur = new DrawVisiteur(spriteBatch, graphics);
-            //IVisiteurComposite visiteur = new DrawVisiteurFarseer(spriteBatch, graphics);
-
             spriteBatch.Begin();
-            //listeObjet.accept(visiteur);
             listeObjet.Dessin(spriteBatch);
-            //selectionnable.dessiner(spriteBatch);
-            //barre.dessiner(spriteBatch);
+            selectionnable.dessiner(spriteBatch);
+            spriteBatch.DrawString(this.Content.Load<SpriteFont>("gamefont"), "" + gameTime.ElapsedGameTime.TotalSeconds, new Vector2(50, 50), Color.Red);
             spriteBatch.End();
 
             base.Draw(gameTime);

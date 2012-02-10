@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using FarseerPhysics.Dynamics.Joints;
 
 namespace Projet.Element_de_Jeu
 {
@@ -16,10 +17,27 @@ namespace Projet.Element_de_Jeu
         /// propriété pour récupérer la taille de la texture affiché a l'écran 
         /// retourne un rectangle null si l'affichage proportionnel n'est pas activé
         /// </summary>
-        /*Rectangle Bounds
+        float BoundsX
         {
             get;
-        }*/
+        }
+
+        float BoundsY
+        {
+            get;
+        }
+
+        float BoundsWidth
+        {
+            get;
+        }
+
+        float BoundsHeight
+        {
+            get;
+        }
+
+        void Desactiver();
     }
 
     /// <summary>
@@ -52,6 +70,11 @@ namespace Projet.Element_de_Jeu
                 iterateur = 0;
                 courant = list[0];
             }
+        }
+
+        public ISelectionnable Courant
+        {
+            get { return courant; }
         }
 
         /// <summary>
@@ -103,8 +126,15 @@ namespace Projet.Element_de_Jeu
         public void dessiner(SpriteBatch spriteBatch)
         {
             //spriteBatch.Begin();
-            //spriteBatch.Draw(texture, new Rectangle(courant.Bounds.X - 15, courant.Bounds.Y - 5, courant.Bounds.Width + 5, courant.Bounds.Height + 5), new Color(255, 255, 255, 50));
+            int coeff = HelperFarseerObject.FarseerObject.PixelPerMeter;
+            Rectangle rect = new Rectangle((int)(courant.BoundsX * coeff)-20, (int)(courant.BoundsY * coeff)-20, 20, 20);/*(int)(courant.BoundsWidth * coeff), (int)(courant.BoundsHeight * coeff));*/
+            spriteBatch.Draw(texture, rect, null, Color.White);
             //spriteBatch.End();
+        }
+
+        public void desactiver()
+        {
+            courant.Desactiver();
         }
     }
 }

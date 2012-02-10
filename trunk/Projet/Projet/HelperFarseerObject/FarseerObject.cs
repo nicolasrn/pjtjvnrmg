@@ -31,7 +31,7 @@ namespace Projet.HelperFarseerObject
         {
             body = BodyFactory.CreateBody(world, new Vector2(x, y));
             body.BodyType = BodyType.Dynamic;
-
+            
             destinationRectangle = new Rectangle(0, 0, (int)(width * pixelPerMeter), (int)(height * pixelPerMeter));
             destinationRectangle.X = (int)(body.Position.X * pixelPerMeter) - destinationRectangle.Width / 2;
             destinationRectangle.Y = (int)(body.Position.Y * pixelPerMeter) - destinationRectangle.Height / 2;

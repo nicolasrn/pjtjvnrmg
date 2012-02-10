@@ -13,7 +13,7 @@ namespace Projet.HelperFarseerObject
 
         private SingletonWorld()
         {
-            world = new FarseerPhysics.Dynamics.World(new Microsoft.Xna.Framework.Vector2(0, 20));
+            world = new FarseerPhysics.Dynamics.World(new Microsoft.Xna.Framework.Vector2(0, 1));
         }
 
         public static SingletonWorld getInstance()

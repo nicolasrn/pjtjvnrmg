@@ -63,8 +63,12 @@ namespace Projet.Element_de_Jeu.Composites
 
         public void Desactiver()
         {
-            joint.Enabled = false;
-            SingletonWorld.getInstance().getWorld().RemoveJoint(joint);
+            if (joint != null)
+            {
+                joint.Enabled = false;
+                SingletonWorld.getInstance().getWorld().RemoveJoint(joint);
+                joint = null;
+            }
         }
     }
 }

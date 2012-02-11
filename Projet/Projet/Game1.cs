@@ -79,6 +79,14 @@ namespace Projet
             //*
             Corde b, c;
             ObjetTexture d;
+            Bille bille;
+
+            lBille = new ListeObjet(new Rectangle(150, 150, 100, 100));
+            lBille.Add(b = new Corde(1.5f, 0.10f, 0.25f, 1.25f));
+            lBille.Add(d = (bille = new Bille(1.5f, 0.5f, 0.5f, 0.5f)));
+            selectionnable.Add(b);
+            b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), b.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(b.X - d.X, 0));
+
             //nomenclature : par ce constructeur le rectangle de obja va contenir les "fils" de l'objet.
             //ces fils s'ettendront proportionnelement à la taille dispo 
             obja = new ListeObjet(new Rectangle(0, 0, 0, 0));
@@ -88,7 +96,10 @@ namespace Projet
             obja.Add(d = new Planche(2f, 1.38f, 2f, 0.25f));
             b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), b.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(b.X - d.X, 0));
             c.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), c.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(c.X - d.X, 0));
-            
+
+            b.Item.Fixture.IgnoreCollisionWith(bille.Item.Fixture);
+            c.Item.Fixture.IgnoreCollisionWith(bille.Item.Fixture);
+
             selectionnable.Add(b);
             selectionnable.Add(c);
 
@@ -102,8 +113,13 @@ namespace Projet
             objb.Add(b = new Corde(1.10f+1, 0.75f+2, 0.25f, 1f));
             objb.Add(c = new Corde(2.95f+1, 0.75f+2, 0.25f, 1f));
             objb.Add(d = new Planche(2f+1, 1.38f+2, 2f, 0.25f));
+
             b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), b.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(b.X - d.X, 0));
             c.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), c.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(c.X - d.X, 0));
+
+            b.Item.Fixture.IgnoreCollisionWith(bille.Item.Fixture);
+            c.Item.Fixture.IgnoreCollisionWith(bille.Item.Fixture);
+
             selectionnable.Add(b);
             selectionnable.Add(c);
 
@@ -114,11 +130,11 @@ namespace Projet
             //ici c'est la racine pour éviter le redimensionnement on utilise le constructeur qui définit un rectangle null (toutes les valeurs sont à 0)
             listeObjet = new ListeObjet("NiveauBanquise", graphics);
 
-            lBille = new ListeObjet(new Rectangle(150, 150, 100, 100));
+            /*lBille = new ListeObjet(new Rectangle(150, 150, 100, 100));
             lBille.Add(b = new Corde(1.5f, 0.10f, 0.25f, 1.25f));
             lBille.Add(d = new Bille(1.5f, 0.5f, 0.5f, 0.5f));
             selectionnable.Add(b);
-            b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), b.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(b.X - d.X, 0));
+            b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), b.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(b.X - d.X, 0));*/
             //b.Joint.Enabled = false;
             //lBille.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), c.Item.Fixture.Body, b.Item.Fixture.Body, new Vector2(0, 0));
             //lBille.Joint.Enabled = false;

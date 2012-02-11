@@ -200,8 +200,6 @@ namespace Projet
 
             SingletonWorld.getInstance().getWorld().Step((float)gameTime.ElapsedGameTime.TotalSeconds);
             
-            //selectionnable.Courant.Desactiver();
-
             listeObjet.Update();
 
             barre.run(gameTime);
@@ -218,7 +216,6 @@ namespace Projet
             GraphicsDevice.Clear(Color.White);
 
             // TODO : ajouter le code de dessin ici
-            //listeObjet.Dessiner(spriteBatch);
 
             spriteBatch.Begin();
             listeObjet.Dessin(spriteBatch);

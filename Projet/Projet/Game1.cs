@@ -126,25 +126,15 @@ namespace Projet
             //b.Joint.Enabled = false;
             //c.Joint.Enabled = false;
             
-            //*/
             //ici c'est la racine pour éviter le redimensionnement on utilise le constructeur qui définit un rectangle null (toutes les valeurs sont à 0)
             listeObjet = new ListeObjet("NiveauBanquise", graphics);
 
-            /*lBille = new ListeObjet(new Rectangle(150, 150, 100, 100));
-            lBille.Add(b = new Corde(1.5f, 0.10f, 0.25f, 1.25f));
-            lBille.Add(d = new Bille(1.5f, 0.5f, 0.5f, 0.5f));
-            selectionnable.Add(b);
-            b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), b.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(b.X - d.X, 0));*/
-            //b.Joint.Enabled = false;
-            //lBille.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), c.Item.Fixture.Body, b.Item.Fixture.Body, new Vector2(0, 0));
-            //lBille.Joint.Enabled = false;
-            //b.Desactiver();
             listeObjet.Add(objb);
             listeObjet.Add(obja);
             listeObjet.Add(lBille);
             //selectionnable.Add(b);
             //*/
-            //*
+            /*
             using (StreamWriter wr = new StreamWriter("test.xml"))
             {
                 try
@@ -162,12 +152,19 @@ namespace Projet
             /*
             using (StreamReader rd = new StreamReader("test.xml"))
             {
-                System.Xml.Serialization.XmlSerializer serialiser = new System.Xml.Serialization.XmlSerializer(typeof(ListeObjet));
-                listeObjet = serialiser.Deserialize(rd) as ListeObjet;
-                listeObjet.Graphics = graphics;
-                List<ISelectionnable> tmp = new List<ISelectionnable>();
-                listeObjet.getSelectionnable(tmp);
-                selectionnable.List = tmp;
+                try
+                {
+                    System.Xml.Serialization.XmlSerializer serialiser = new System.Xml.Serialization.XmlSerializer(typeof(ListeObjet));
+                    listeObjet = serialiser.Deserialize(rd) as ListeObjet;
+                    listeObjet.Graphics = graphics;
+                    List<ISelectionnable> tmp = new List<ISelectionnable>();
+                    listeObjet.getSelectionnable(tmp);
+                    selectionnable.List = tmp;
+                }
+                catch (Exception e)
+                {
+                    Console.Out.WriteLine(e);
+                }
             }
             //*/
             base.Initialize();

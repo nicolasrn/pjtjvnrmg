@@ -71,7 +71,11 @@ namespace Projet.Element_de_Jeu.Composites
 
         public GraphicsDeviceManager Graphics
         {
-            set { graphics = value; }
+            set 
+            {
+                graphics = value;
+                this.rect = new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+            }
         }
 
         /// <summary>
@@ -99,15 +103,20 @@ namespace Projet.Element_de_Jeu.Composites
         protected override void init(ContentManager Content)
         {
             if (graphics != null)
-                texture = Content.Load<Texture2D>(textureName);
+                loadTexture(Content);
 
             foreach (ObjetCompositeAbstrait obj in list)
                 obj.Initialize(Content);
         }
 
+        public void loadTexture(ContentManager Content)
+        {
+            texture = Content.Load<Texture2D>(textureName);
+        }
+
         protected override void dessin(SpriteBatch spriteBatch)
         {
-            if (graphics != null)
+            if (texture != null)
                 spriteBatch.Draw(texture, rect, Color.White);
 
             foreach (ObjetCompositeAbstrait o in list)

@@ -157,6 +157,7 @@ namespace Projet
                     System.Xml.Serialization.XmlSerializer serialiser = new System.Xml.Serialization.XmlSerializer(typeof(ListeObjet));
                     listeObjet = serialiser.Deserialize(rd) as ListeObjet;
                     listeObjet.Graphics = graphics;
+                    Console.Out.WriteLine(listeObjet.TextureName);
                     List<ISelectionnable> tmp = new List<ISelectionnable>();
                     listeObjet.getSelectionnable(tmp);
                     selectionnable.List = tmp;

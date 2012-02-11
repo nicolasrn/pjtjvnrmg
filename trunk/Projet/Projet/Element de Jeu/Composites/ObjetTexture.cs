@@ -69,10 +69,10 @@ namespace Projet.Element_de_Jeu.Composites
         /// <param name="Content">pour l'acces à la méthode Load</param>
         protected override void init(ContentManager Content)
         {
-            this.texture = Content.Load<Texture2D>(textureName);
-            this.Item.Texture = this.Texture;
             if (item == null)
                 this.specialisationInit();
+            this.texture = Content.Load<Texture2D>(textureName);
+            this.Item.Texture = this.Texture;
         }
 
         protected override void dessin(SpriteBatch spriteBatch)

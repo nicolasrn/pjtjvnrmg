@@ -27,6 +27,7 @@ namespace Projet.Element_de_Jeu.Composites
         protected String textureName;
         protected Texture2D texture;
 
+        [XmlIgnore]
         public FarseerObject Item
         {
             get { return item; }
@@ -41,8 +42,8 @@ namespace Projet.Element_de_Jeu.Composites
 
         public String TextureName
         {
-            get { return TextureName; }
-            set { TextureName = value; }
+            get { return textureName; }
+            set { textureName = value; }
         }
 
         /// <summary>

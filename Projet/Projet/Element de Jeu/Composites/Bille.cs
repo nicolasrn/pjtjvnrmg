@@ -18,14 +18,23 @@ namespace Projet.Element_de_Jeu.Composites
         public Bille(float x, float y, float width, float height)
             : base("Ours", x, y, width, height)
         {
+        }
+
+        public Bille()
+            : base()
+        {
+        }
+
+        public override void specialisationInit()
+        {
             item = new FarseerObject(
-                SingletonWorld.getInstance().getWorld(),
-                FarseerObject.FarseerObjectType.Box,
-                x,
-                y,
-                width,
-                height,
-                new Rectangle(0, 0, 300, 300));
+                   SingletonWorld.getInstance().getWorld(),
+                   FarseerObject.FarseerObjectType.Box,
+                   x,
+                   y,
+                   width,
+                   height,
+                   new Rectangle(0, 0, 300, 300));
             //item.Fixture.Body.BodyType = FarseerPhysics.Dynamics.BodyType.Static;
         }
     }

@@ -1,257 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ListeObjet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Rect>
-    <X>0</X>
-    <Y>0</Y>
-    <Width>0</Width>
-    <Height>0</Height>
-    <Location>
-      <X>0</X>
-      <Y>0</Y>
-    </Location>
-  </Rect>
-  <TextureName />
-  <RectangleCourant>
-    <X>0</X>
-    <Y>0</Y>
-    <Width>0</Width>
-    <Height>0</Height>
-    <Location>
-      <X>0</X>
-      <Y>0</Y>
-    </Location>
-  </RectangleCourant>
+  <TextureName>NiveauBanquise</TextureName>
   <List>
     <ObjetCompositeAbstrait xsi:type="ListeObjet">
-      <Rect>
-        <X>40</X>
-        <Y>70</Y>
-        <Width>80</Width>
-        <Height>80</Height>
-        <Location>
-          <X>40</X>
-          <Y>70</Y>
-        </Location>
-      </Rect>
-      <RectangleCourant>
-        <X>0</X>
-        <Y>0</Y>
-        <Width>0</Width>
-        <Height>0</Height>
-        <Location>
-          <X>0</X>
-          <Y>0</Y>
-        </Location>
-      </RectangleCourant>
       <List>
         <ObjetCompositeAbstrait xsi:type="Corde">
-          <Rect>
-            <X>0</X>
-            <Y>0</Y>
-            <Width>5</Width>
-            <Height>95</Height>
-            <Location>
-              <X>0</X>
-              <Y>0</Y>
-            </Location>
-          </Rect>
           <TextureName>corde</TextureName>
-          <RectangleCourant>
-            <X>0</X>
-            <Y>0</Y>
-            <Width>0</Width>
-            <Height>0</Height>
-            <Location>
-              <X>0</X>
-              <Y>0</Y>
-            </Location>
-          </RectangleCourant>
+          <X>2.1</X>
+          <Y>2.75</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
         </ObjetCompositeAbstrait>
         <ObjetCompositeAbstrait xsi:type="Corde">
-          <Rect>
-            <X>95</X>
-            <Y>0</Y>
-            <Width>5</Width>
-            <Height>95</Height>
-            <Location>
-              <X>95</X>
-              <Y>0</Y>
-            </Location>
-          </Rect>
           <TextureName>corde</TextureName>
-          <RectangleCourant>
-            <X>0</X>
-            <Y>0</Y>
-            <Width>0</Width>
-            <Height>0</Height>
-            <Location>
-              <X>0</X>
-              <Y>0</Y>
-            </Location>
-          </RectangleCourant>
+          <X>3.95</X>
+          <Y>2.75</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
         </ObjetCompositeAbstrait>
         <ObjetCompositeAbstrait xsi:type="Planche">
-          <Rect>
-            <X>0</X>
-            <Y>95</Y>
-            <Width>100</Width>
-            <Height>5</Height>
-            <Location>
-              <X>0</X>
-              <Y>95</Y>
-            </Location>
-          </Rect>
           <TextureName>planche</TextureName>
-          <RectangleCourant>
-            <X>0</X>
-            <Y>0</Y>
-            <Width>0</Width>
-            <Height>0</Height>
-            <Location>
-              <X>0</X>
-              <Y>0</Y>
-            </Location>
-          </RectangleCourant>
+          <X>3</X>
+          <Y>3.38</Y>
+          <Width>2</Width>
+          <Height>0.25</Height>
         </ObjetCompositeAbstrait>
       </List>
     </ObjetCompositeAbstrait>
     <ObjetCompositeAbstrait xsi:type="ListeObjet">
-      <Rect>
-        <X>20</X>
-        <Y>10</Y>
-        <Width>50</Width>
-        <Height>50</Height>
-        <Location>
-          <X>20</X>
-          <Y>10</Y>
-        </Location>
-      </Rect>
-      <RectangleCourant>
-        <X>0</X>
-        <Y>0</Y>
-        <Width>0</Width>
-        <Height>0</Height>
-        <Location>
-          <X>0</X>
-          <Y>0</Y>
-        </Location>
-      </RectangleCourant>
       <List>
         <ObjetCompositeAbstrait xsi:type="Corde">
-          <Rect>
-            <X>0</X>
-            <Y>0</Y>
-            <Width>25</Width>
-            <Height>95</Height>
-            <Location>
-              <X>0</X>
-              <Y>0</Y>
-            </Location>
-          </Rect>
           <TextureName>corde</TextureName>
-          <RectangleCourant>
-            <X>0</X>
-            <Y>0</Y>
-            <Width>0</Width>
-            <Height>0</Height>
-            <Location>
-              <X>0</X>
-              <Y>0</Y>
-            </Location>
-          </RectangleCourant>
+          <X>1.1</X>
+          <Y>0.75</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
         </ObjetCompositeAbstrait>
         <ObjetCompositeAbstrait xsi:type="Corde">
-          <Rect>
-            <X>80</X>
-            <Y>0</Y>
-            <Width>25</Width>
-            <Height>95</Height>
-            <Location>
-              <X>80</X>
-              <Y>0</Y>
-            </Location>
-          </Rect>
           <TextureName>corde</TextureName>
-          <RectangleCourant>
-            <X>0</X>
-            <Y>0</Y>
-            <Width>0</Width>
-            <Height>0</Height>
-            <Location>
-              <X>0</X>
-              <Y>0</Y>
-            </Location>
-          </RectangleCourant>
+          <X>2.95</X>
+          <Y>0.75</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
         </ObjetCompositeAbstrait>
         <ObjetCompositeAbstrait xsi:type="Planche">
-          <Rect>
-            <X>0</X>
-            <Y>95</Y>
-            <Width>100</Width>
-            <Height>25</Height>
-            <Location>
-              <X>0</X>
-              <Y>95</Y>
-            </Location>
-          </Rect>
           <TextureName>planche</TextureName>
-          <RectangleCourant>
-            <X>0</X>
-            <Y>0</Y>
-            <Width>0</Width>
-            <Height>0</Height>
-            <Location>
-              <X>0</X>
-              <Y>0</Y>
-            </Location>
-          </RectangleCourant>
+          <X>2</X>
+          <Y>1.38</Y>
+          <Width>2</Width>
+          <Height>0.25</Height>
         </ObjetCompositeAbstrait>
       </List>
     </ObjetCompositeAbstrait>
     <ObjetCompositeAbstrait xsi:type="ListeObjet">
-      <Rect>
-        <X>50</X>
-        <Y>50</Y>
-        <Width>100</Width>
-        <Height>100</Height>
-        <Location>
-          <X>50</X>
-          <Y>50</Y>
-        </Location>
-      </Rect>
-      <RectangleCourant>
-        <X>0</X>
-        <Y>0</Y>
-        <Width>0</Width>
-        <Height>0</Height>
-        <Location>
-          <X>0</X>
-          <Y>0</Y>
-        </Location>
-      </RectangleCourant>
       <List>
+        <ObjetCompositeAbstrait xsi:type="Corde">
+          <TextureName>corde</TextureName>
+          <X>1.5</X>
+          <Y>0.1</Y>
+          <Width>0.25</Width>
+          <Height>1.25</Height>
+        </ObjetCompositeAbstrait>
         <ObjetCompositeAbstrait xsi:type="Bille">
-          <Rect>
-            <X>0</X>
-            <Y>0</Y>
-            <Width>100</Width>
-            <Height>100</Height>
-            <Location>
-              <X>0</X>
-              <Y>0</Y>
-            </Location>
-          </Rect>
           <TextureName>Ours</TextureName>
-          <RectangleCourant>
-            <X>0</X>
-            <Y>0</Y>
-            <Width>0</Width>
-            <Height>0</Height>
-            <Location>
-              <X>0</X>
-              <Y>0</Y>
-            </Location>
-          </RectangleCourant>
+          <X>1.5</X>
+          <Y>0.5</Y>
+          <Width>0.5</Width>
+          <Height>0.5</Height>
         </ObjetCompositeAbstrait>
       </List>
     </ObjetCompositeAbstrait>

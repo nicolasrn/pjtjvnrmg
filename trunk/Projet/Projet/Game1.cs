@@ -144,11 +144,18 @@ namespace Projet
             listeObjet.Add(lBille);
             //selectionnable.Add(b);
             //*/
-            /*
+            //*
             using (StreamWriter wr = new StreamWriter("test.xml"))
             {
-                System.Xml.Serialization.XmlSerializer serialiser = new System.Xml.Serialization.XmlSerializer(typeof(ListeObjet));
-                serialiser.Serialize(wr, listeObjet);
+                try
+                {
+                    System.Xml.Serialization.XmlSerializer serialiser = new System.Xml.Serialization.XmlSerializer(typeof(ListeObjet));
+                    serialiser.Serialize(wr, listeObjet);
+                }
+                catch (Exception e)
+                {
+                    Console.Out.WriteLine(e);
+                }
             }
             //*/
 

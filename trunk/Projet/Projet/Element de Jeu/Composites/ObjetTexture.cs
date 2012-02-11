@@ -34,26 +34,33 @@ namespace Projet.Element_de_Jeu.Composites
             this.y = y;
             this.width = width;
             this.height = height;
+            this.specialisationInit();
         }
+
+        public abstract void specialisationInit();
 
         public float X
         {
             get { return x; }
+            set { x = value ; }
         }
 
         public float Y
         {
             get { return y; }
+            set { y = value; }
         }
 
         public float Width
         {
             get { return width; }
+            set { width = value; }
         }
 
         public float Height
         {
             get { return height; }
+            set { height = value; }
         }
 
         /// <summary>
@@ -64,6 +71,8 @@ namespace Projet.Element_de_Jeu.Composites
         {
             this.texture = Content.Load<Texture2D>(textureName);
             this.Item.Texture = this.Texture;
+            if (item == null)
+                this.specialisationInit();
         }
 
         protected override void dessin(SpriteBatch spriteBatch)

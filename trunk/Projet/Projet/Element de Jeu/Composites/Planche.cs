@@ -20,6 +20,15 @@ namespace Projet.Element_de_Jeu.Composites
         public Planche(float x, float y, float width, float height)
             : base("planche", x, y, width, height)
         {
+        }
+
+        public Planche()
+            : base()
+        {
+        }
+
+        public override void specialisationInit()
+        {
             item = new FarseerObject(
                 SingletonWorld.getInstance().getWorld(),
                 FarseerObject.FarseerObjectType.Box,

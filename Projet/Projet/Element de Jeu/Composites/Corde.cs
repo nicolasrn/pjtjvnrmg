@@ -80,5 +80,10 @@ namespace Projet.Element_de_Jeu.Composites
                 new Rectangle(0, 0, 38, 400));
             item.Fixture.Body.BodyType = FarseerPhysics.Dynamics.BodyType.Static;
         }
+
+        public void ignoreCollision(ObjetTexture o)
+        {
+            this.Item.Fixture.IgnoreCollisionWith(o.Item.Fixture);
+        }
     }
 }

@@ -76,7 +76,7 @@ namespace Projet
             barre = new BarreDeChargement();
 
             selectionnable = new Selectionnable();
-            //*
+            /*
             Corde b, c;
             ObjetTexture d;
             Bille bille;
@@ -94,11 +94,9 @@ namespace Projet
             obja.Add(b = new Corde(1.10f, 0.75f, 0.25f, 1f)); 
             obja.Add(c = new Corde(2.95f, 0.75f, 0.25f, 1f)); 
             obja.Add(d = new Planche(2f, 1.38f, 2f, 0.25f));
-            b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), b.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(b.X - d.X, 0));
-            c.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), c.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(c.X - d.X, 0));
 
-            b.Item.Fixture.IgnoreCollisionWith(bille.Item.Fixture);
-            c.Item.Fixture.IgnoreCollisionWith(bille.Item.Fixture);
+            //obja.lier();
+            //obja.ignoreCollisionWith(bille);
 
             selectionnable.Add(b);
             selectionnable.Add(c);
@@ -109,16 +107,13 @@ namespace Projet
             //obja.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), c.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(0, 0));
 
             objb = new ListeObjet(new Rectangle(40, 70, 80, 80));
-            //*
+            
             objb.Add(b = new Corde(1.10f+1, 0.75f+2, 0.25f, 1f));
             objb.Add(c = new Corde(2.95f+1, 0.75f+2, 0.25f, 1f));
             objb.Add(d = new Planche(2f+1, 1.38f+2, 2f, 0.25f));
 
-            b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), b.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(b.X - d.X, 0));
-            c.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), c.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(c.X - d.X, 0));
-
-            b.Item.Fixture.IgnoreCollisionWith(bille.Item.Fixture);
-            c.Item.Fixture.IgnoreCollisionWith(bille.Item.Fixture);
+            //objb.lier();
+            //objb.ignoreCollisionWith(bille);
 
             selectionnable.Add(b);
             selectionnable.Add(c);
@@ -132,8 +127,13 @@ namespace Projet
             listeObjet.Add(objb);
             listeObjet.Add(obja);
             listeObjet.Add(lBille);
+
+            listeObjet.lier();
+            listeObjet.ignoreCollisionWith(bille);
+
             //selectionnable.Add(b);
             //*/
+
             /*
             using (StreamWriter wr = new StreamWriter("test.xml"))
             {
@@ -149,7 +149,7 @@ namespace Projet
             }
             //*/
 
-            /*
+            //*
             using (StreamReader rd = new StreamReader("test.xml"))
             {
                 try
@@ -157,6 +157,13 @@ namespace Projet
                     System.Xml.Serialization.XmlSerializer serialiser = new System.Xml.Serialization.XmlSerializer(typeof(ListeObjet));
                     listeObjet = serialiser.Deserialize(rd) as ListeObjet;
                     listeObjet.Graphics = graphics;
+                    listeObjet.Initialize(Content);
+                    foreach(ObjetCompositeAbstrait o in listeObjet.List)
+                        (o as ListeObjet).lier();
+                    Bille b = listeObjet.getBille();
+                    foreach(ObjetCompositeAbstrait o in listeObjet.List)
+                        (o as ListeObjet).ignoreCollisionWith(b);
+
                     Console.Out.WriteLine(listeObjet.TextureName);
                     List<ISelectionnable> tmp = new List<ISelectionnable>();
                     listeObjet.getSelectionnable(tmp);
@@ -182,7 +189,6 @@ namespace Projet
 
             // TODO : utiliser this.Content pour charger le contenu de jeu ici
             barre.init(Content);
-            listeObjet.Initialize(Content);
             selectionnable.init(Content);
         }
 

@@ -96,6 +96,70 @@ namespace Projet.Element_de_Jeu.Composites
                     ((ListeObjet)obj).getSelectionnable(listS);
         }
 
+        public void lier()
+        {
+            if (list.Count == 3)
+            {
+                Corde a = (list[0] as Corde);
+                Corde b = (list[1] as Corde);
+                Planche p = (list[2] as Planche);
+                a.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(),
+                    a.Item.Fixture.Body,
+                    p.Item.Fixture.Body,
+                    new Vector2(a.X - p.X, 0));
+
+                b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(),
+                    b.Item.Fixture.Body,
+                    p.Item.Fixture.Body,
+                    new Vector2(b.X - p.X, 0));
+            }
+            else
+            {
+                Corde a = list[0] as Corde;
+                Bille b = list[1] as Bille;
+
+                a.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(),
+                    a.Item.Fixture.Body,
+                    b.Item.Fixture.Body,
+                    new Vector2(a.X - b.X, 0));
+            }
+        }
+
+        public void ignoreCollisionWith(ObjetTexture o)
+        {
+            if (list.Count == 3)
+            {
+                (list[0] as Corde).ignoreCollision(o);
+                (list[1] as Corde).ignoreCollision(o);
+            }
+        }
+
+        private Boolean containBille(ListeObjet l)
+        {
+            Boolean trouve = false;
+
+            foreach(ObjetCompositeAbstrait o in l.list)
+                if (o is Bille)
+                    trouve = true;
+
+            return trouve;
+        }
+        /*
+        public void lier()
+        {
+            //foreach(ObjetCompositeAbstrait o in list)
+                if (!this.containBille(o as ListeObjet))
+                    if (o is ListeObjet)
+                        (o as ListeObjet)._lier();
+        }
+
+        public void ignoreCollisionWith(ObjetTexture o)
+        {
+            for (int i = 1; i < list.Count; i++)
+                if (list[i] is ListeObjet)
+                    (list[i] as ListeObjet)._ignoreCollisionWith(o);
+        }
+        //*/
         /// <summary>
         /// Pour le chargement des images
         /// </summary>
@@ -127,6 +191,17 @@ namespace Projet.Element_de_Jeu.Composites
         {
             foreach (ObjetCompositeAbstrait o in list)
                 o.Update();
+        }
+
+        public Bille getBille()
+        {
+            Bille b = null;
+            foreach (ObjetCompositeAbstrait o in list)
+                if (o is Bille)
+                    b = o as Bille;
+                else if (o is ListeObjet)
+                    b = (o as ListeObjet).getBille();
+            return b;
         }
     }
 }

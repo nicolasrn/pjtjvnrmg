@@ -87,7 +87,7 @@ namespace Projet.HelperFarseerObject
             destinationRectangle.Y = (int)(fixture.Body.Position.Y * pixelPerMeter) - destinationRectangle.Height / 2;
         }
 
-        public void draw(SpriteBatch spriteBatch)
+        public void draw(SpriteBatch spriteBatch, Color color)
         {
             Rectangle boxRotated = new Rectangle(destinationRectangle.Center.X,
                 destinationRectangle.Center.Y,
@@ -98,12 +98,17 @@ namespace Projet.HelperFarseerObject
                 texture, 
                 boxRotated, 
                 null,
-                Color.White,
+                color,
                 fixture.Body.Rotation,
                 new Vector2(sourceRectangle.X+sourceRectangle.Width/2,
                     sourceRectangle.Y + sourceRectangle.Height/2),
                     SpriteEffects.None, 0
             );
+        }
+
+        public void draw(SpriteBatch spriteBatch)
+        {
+            draw(spriteBatch, Color.White);
         }
     }
 }

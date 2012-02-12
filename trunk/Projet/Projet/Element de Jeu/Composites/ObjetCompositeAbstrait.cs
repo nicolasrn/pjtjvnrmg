@@ -20,7 +20,7 @@ namespace Projet.Element_de_Jeu.Composites
     /// Objet abstrait servant de base au pattern composite
     /// </summary>
     [Serializable]
-    [XmlInclude(typeof(ObjetTexture)), XmlInclude(typeof(Corde)), XmlInclude(typeof(Planche)), XmlInclude(typeof(ListeObjet)), XmlInclude(typeof(Bille))]
+    [XmlInclude(typeof(ObjetTexture)), XmlInclude(typeof(Corde)), XmlInclude(typeof(Planche)), XmlInclude(typeof(ListeObjet)), XmlInclude(typeof(Bille)), XmlInclude(typeof(Sol))]
     public abstract class ObjetCompositeAbstrait
     {
         protected FarseerObject item;
@@ -34,6 +34,7 @@ namespace Projet.Element_de_Jeu.Composites
             set { item = value; }
         }
 
+        [XmlIgnore]
         public Texture2D Texture
         {
             get { return texture; }

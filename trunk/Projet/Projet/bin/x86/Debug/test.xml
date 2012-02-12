@@ -4,6 +4,17 @@
   <List>
     <ObjetCompositeAbstrait xsi:type="ListeObjet">
       <List>
+        <ObjetCompositeAbstrait xsi:type="Sol">
+          <TextureName>chargement</TextureName>
+          <X>0</X>
+          <Y>13.25</Y>
+          <Width>24</Width>
+          <Height>1.5</Height>
+        </ObjetCompositeAbstrait>
+      </List>
+    </ObjetCompositeAbstrait>
+    <ObjetCompositeAbstrait xsi:type="ListeObjet">
+      <List>
         <ObjetCompositeAbstrait xsi:type="Corde">
           <TextureName>corde</TextureName>
           <X>2.1</X>

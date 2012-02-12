@@ -95,9 +95,7 @@ namespace Projet.Element_de_Jeu
         /// <param name="spriteBatch">le SpriteBatch qui permet de dessiner</param>
         public void dessiner(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin();
             spriteBatch.Draw(this.barre, new Rectangle(0, 0, chargementBar.Width, 20), Color.White);
-            spriteBatch.End();
         }
     }
 }

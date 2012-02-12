@@ -32,30 +32,44 @@ namespace Projet
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
+        
+        #region variable de conception de niveau
+        private ListeObjet obja, objb, objc, lBille;
+        #endregion
 
+        #region variable permanante
         private BarreDeChargement barre;
-        private ListeObjet listeObjet, obja, objb, lBille;
-
+        private ListeObjet listeObjet;
         private Selectionnable selectionnable;
+        private Boolean victoire;
+        #endregion
 
+        #region controlleur de clavier
         private KeyboardState lastKeyboardState;
         private KeyboardState currentKeyboardState;
+        #endregion
 
+        #region déclaration ScreenManager
         //ScreenManager screenManager;
+        #endregion
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            // Create the screen manager component.
-            //screenManager = new ScreenManager(this);
+            #region ScreenManager
+            /*
+            //Create the screen manager component.
+            screenManager = new ScreenManager(this);
 
-            //Components.Add(screenManager);
+            Components.Add(screenManager);
 
             // Activate the first screens.
-            //screenManager.AddScreen(new BackgroundScreen(), null);
-            //screenManager.AddScreen(new MainMenuScreen(), null);
+            screenManager.AddScreen(new BackgroundScreen(), null);
+            screenManager.AddScreen(new MainMenuScreen(), null);
+            //*/
+            #endregion
         }
 
         /// <summary>
@@ -74,107 +88,58 @@ namespace Projet
             SingletonWorld.getInstance().getWorld();
 
             barre = new BarreDeChargement();
-
             selectionnable = new Selectionnable();
+            victoire = false;
+
+            #region conception de niveau
             /*
             Corde b, c;
             ObjetTexture d;
             Bille bille;
 
-            lBille = new ListeObjet(new Rectangle(150, 150, 100, 100));
+            lBille = new ListeObjet(Rectangle.Empty);
             lBille.Add(b = new Corde(1.5f, 0.10f, 0.25f, 1.25f));
             lBille.Add(d = (bille = new Bille(1.5f, 0.5f, 0.5f, 0.5f)));
             selectionnable.Add(b);
-            b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), b.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(b.X - d.X, 0));
-
-            //nomenclature : par ce constructeur le rectangle de obja va contenir les "fils" de l'objet.
-            //ces fils s'ettendront proportionnelement à la taille dispo 
-            obja = new ListeObjet(new Rectangle(0, 0, 0, 0));
-            //toutes les valeurs des rectangles des objets fils indique la taille proportionnel par rapport au père
+            
+            obja = new ListeObjet(Rectangle.Empty);
             obja.Add(b = new Corde(1.10f, 0.75f, 0.25f, 1f)); 
             obja.Add(c = new Corde(2.95f, 0.75f, 0.25f, 1f)); 
             obja.Add(d = new Planche(2f, 1.38f, 2f, 0.25f));
 
-            //obja.lier();
-            //obja.ignoreCollisionWith(bille);
-
             selectionnable.Add(b);
             selectionnable.Add(c);
 
-            //b.Joint.Enabled = false;
-            //c.Joint.Enabled = false;
-
-            //obja.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(), c.Item.Fixture.Body, d.Item.Fixture.Body, new Vector2(0, 0));
-
-            objb = new ListeObjet(new Rectangle(40, 70, 80, 80));
+            objb = new ListeObjet(Rectangle.Empty);
             
             objb.Add(b = new Corde(1.10f+1, 0.75f+2, 0.25f, 1f));
             objb.Add(c = new Corde(2.95f+1, 0.75f+2, 0.25f, 1f));
             objb.Add(d = new Planche(2f+1, 1.38f+2, 2f, 0.25f));
 
-            //objb.lier();
-            //objb.ignoreCollisionWith(bille);
-
             selectionnable.Add(b);
             selectionnable.Add(c);
 
-            //b.Joint.Enabled = false;
-            //c.Joint.Enabled = false;
-            
+            objc = new ListeObjet(Rectangle.Empty);
+            objc.Add(new Sol(0, (graphics.PreferredBackBufferHeight-37.5f)/FarseerObject.PixelPerMeter, 24, 1.5f));
+
             //ici c'est la racine pour éviter le redimensionnement on utilise le constructeur qui définit un rectangle null (toutes les valeurs sont à 0)
             listeObjet = new ListeObjet("NiveauBanquise", graphics);
 
+            listeObjet.Add(objc);
             listeObjet.Add(objb);
             listeObjet.Add(obja);
             listeObjet.Add(lBille);
+            
+            listeObjet.Initialize(Content);
+            foreach (ObjetCompositeAbstrait o in listeObjet.List)
+                (o as ListeObjet).lier();
+            foreach (ObjetCompositeAbstrait o in listeObjet.List)
+                (o as ListeObjet).ignoreCollisionWith(bille);
 
-            listeObjet.lier();
-            listeObjet.ignoreCollisionWith(bille);
-
-            //selectionnable.Add(b);
+            saveLevel("test");
             //*/
-
-            /*
-            using (StreamWriter wr = new StreamWriter("test.xml"))
-            {
-                try
-                {
-                    System.Xml.Serialization.XmlSerializer serialiser = new System.Xml.Serialization.XmlSerializer(typeof(ListeObjet));
-                    serialiser.Serialize(wr, listeObjet);
-                }
-                catch (Exception e)
-                {
-                    Console.Out.WriteLine(e);
-                }
-            }
-            //*/
-
-            //*
-            using (StreamReader rd = new StreamReader("test.xml"))
-            {
-                try
-                {
-                    System.Xml.Serialization.XmlSerializer serialiser = new System.Xml.Serialization.XmlSerializer(typeof(ListeObjet));
-                    listeObjet = serialiser.Deserialize(rd) as ListeObjet;
-                    listeObjet.Graphics = graphics;
-                    listeObjet.Initialize(Content);
-                    foreach(ObjetCompositeAbstrait o in listeObjet.List)
-                        (o as ListeObjet).lier();
-                    Bille b = listeObjet.getBille();
-                    foreach(ObjetCompositeAbstrait o in listeObjet.List)
-                        (o as ListeObjet).ignoreCollisionWith(b);
-
-                    Console.Out.WriteLine(listeObjet.TextureName);
-                    List<ISelectionnable> tmp = new List<ISelectionnable>();
-                    listeObjet.getSelectionnable(tmp);
-                    selectionnable.List = tmp;
-                }
-                catch (Exception e)
-                {
-                    Console.Out.WriteLine(e);
-                }
-            }
-            //*/
+            #endregion
+            
             base.Initialize();
         }
 
@@ -189,6 +154,7 @@ namespace Projet
 
             // TODO : utiliser this.Content pour charger le contenu de jeu ici
             barre.init(Content);
+            loadLevel("test");
             selectionnable.init(Content);
         }
 
@@ -225,10 +191,13 @@ namespace Projet
             if (lastKeyboardState.IsKeyUp(Keys.Space) && currentKeyboardState.IsKeyDown(Keys.Space))
                 selectionnable.desactiver();
 
+            //test sur la destination de la bille
+            //si ok 
+            //victoire = true;
+
             SingletonWorld.getInstance().getWorld().Step((float)gameTime.ElapsedGameTime.TotalSeconds);
             
             listeObjet.Update();
-
             barre.run(gameTime);
 
             base.Update(gameTime);
@@ -245,12 +214,70 @@ namespace Projet
             // TODO : ajouter le code de dessin ici
 
             spriteBatch.Begin();
-            listeObjet.Dessin(spriteBatch);
-            selectionnable.dessiner(spriteBatch);
-            spriteBatch.DrawString(this.Content.Load<SpriteFont>("gamefont"), "" + gameTime.ElapsedGameTime.TotalSeconds, new Vector2(50, 50), Color.Red);
+            if (!victoire)
+            {
+                listeObjet.Dessin(spriteBatch);
+                selectionnable.dessiner(spriteBatch);
+                spriteBatch.DrawString(this.Content.Load<SpriteFont>("gamefont"), "" + gameTime.ElapsedGameTime.TotalSeconds, new Vector2(50, 50), Color.Red);
+                //barre.dessiner(spriteBatch);
+            }
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        /// <summary>
+        /// permet la sauvegarde de niveau en mode conception
+        /// </summary>
+        /// <param name="name">nom du fichier sans l'extension</param>
+        private void saveLevel(String name)
+        {
+            using (StreamWriter wr = new StreamWriter(name + ".xml"))
+            {
+                try
+                {
+                    System.Xml.Serialization.XmlSerializer serialiser = new System.Xml.Serialization.XmlSerializer(typeof(ListeObjet));
+                    serialiser.Serialize(wr, listeObjet);
+                }
+                catch (Exception e)
+                {
+                    Console.Out.WriteLine(e);
+                }
+            }
+        }
+
+        /// <summary>
+        /// permet le chargement de niveau
+        /// </summary>
+        /// <param name="name">nom du fichier sans l'extension</param>
+        private void loadLevel(String name)
+        {
+            using (StreamReader rd = new StreamReader(name + ".xml"))
+            {
+                try
+                {
+                    System.Xml.Serialization.XmlSerializer serialiser = new System.Xml.Serialization.XmlSerializer(typeof(ListeObjet));
+                    listeObjet = serialiser.Deserialize(rd) as ListeObjet;
+                    listeObjet.Graphics = graphics;
+                    listeObjet.Initialize(Content);
+
+                    foreach (ObjetCompositeAbstrait o in listeObjet.List)
+                        (o as ListeObjet).lier();
+                    Bille b = listeObjet.getBille();
+                    foreach (ObjetCompositeAbstrait o in listeObjet.List)
+                        (o as ListeObjet).ignoreCollisionWith(b);
+
+                    List<ISelectionnable> tmp = new List<ISelectionnable>();
+                    listeObjet.getSelectionnable(tmp);
+                    selectionnable.List = tmp;
+
+                    victoire = false;
+                }
+                catch (Exception e)
+                {
+                    Console.Out.WriteLine(e);
+                }
+            }
         }
     }
 }

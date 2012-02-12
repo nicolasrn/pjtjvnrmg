@@ -116,6 +116,7 @@
   <ItemGroup>
     <Compile Include="Element de Jeu\BarreDeChargement.cs" />
     <Compile Include="Element de Jeu\Composites\Bille.cs" />
+    <Compile Include="Element de Jeu\Composites\Sol.cs" />
     <Compile Include="Element de Jeu\Composites\Corde.cs" />
     <Compile Include="Element de Jeu\Composites\ListeObjet.cs" />
     <Compile Include="Element de Jeu\Composites\ObjetTexture.cs" />

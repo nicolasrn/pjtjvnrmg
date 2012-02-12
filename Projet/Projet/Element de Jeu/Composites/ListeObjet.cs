@@ -113,7 +113,7 @@ namespace Projet.Element_de_Jeu.Composites
                     p.Item.Fixture.Body,
                     new Vector2(b.X - p.X, 0));
             }
-            else
+            else if (list.Count == 2)
             {
                 Corde a = list[0] as Corde;
                 Bille b = list[1] as Bille;

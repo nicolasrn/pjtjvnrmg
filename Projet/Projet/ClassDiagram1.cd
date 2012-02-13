@@ -1,95 +1,139 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Projet.Element_de_Jeu.ChargementBarre">
-    <Position X="8.25" Y="5.75" Width="1.5" />
+  <Class Name="Projet.Element_de_Jeu.ChargementBarre" Collapsed="true">
+    <Position X="2.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAQAAEAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Element de Jeu\BarreDeChargement.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Projet.Element_de_Jeu.BarreDeChargement" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="13" Y="0.5" Width="1.5" />
+    <Position X="12.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAkAAAAAAAAAAAAAAAAQAAAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>Element de Jeu\BarreDeChargement.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Projet.Element_de_Jeu.ObjetCompositeAbstrait">
-    <Position X="2.75" Y="0.5" Width="1.5" />
+  <Class Name="Projet.Element_de_Jeu.Selectionnable" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAAAAAAAAAAAAQAABAAAIAQAAAAAAgIAAAAAAAAAAwA=</HashCode>
-      <FileName>Element de Jeu\Composite.cs</FileName>
+      <HashCode>ABIAAgAAAAAAAAAQAAIAAAQAAAAIAgIAAAIAAAAAAAI=</HashCode>
+      <FileName>Element de Jeu\Selection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Projet.Element_de_Jeu.Composites.Bille" Collapsed="true">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Element de Jeu\Composites\Bille.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet.Element_de_Jeu.ObjetTexture">
-    <Position X="3.75" Y="4.5" Width="1.5" />
+  <Class Name="Projet.Element_de_Jeu.Composites.Corde" Collapsed="true">
+    <Position X="7.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAIAAAAAAAAAAAA=</HashCode>
-      <FileName>Element de Jeu\Composite.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAACgAAACiAABAAAAAAAwAA=</HashCode>
+      <FileName>Element de Jeu\Composites\Corde.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Projet.Element_de_Jeu.Composites.ListeObjet" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAOAAgAABAAAAAAAAAIAIAEECAAAAAoAAgAAAAAEAAI=</HashCode>
+      <FileName>Element de Jeu\Composites\ListeObjet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet.Element_de_Jeu.Corde">
-    <Position X="2.75" Y="7" Width="1.5" />
+  <Class Name="Projet.Element_de_Jeu.Composites.ObjetCompositeAbstrait" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Element de Jeu\Composite.cs</FileName>
+      <HashCode>CAQAAAAAAAAAAQAAAAQAAAAEAAAAAgIAAgIAAAoEAAA=</HashCode>
+      <FileName>Element de Jeu\Composites\ObjetCompositeAbstrait.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet.Element_de_Jeu.Planche">
-    <Position X="5" Y="7" Width="1.5" />
+  <Class Name="Projet.Element_de_Jeu.Composites.ObjetTexture" Collapsed="true">
+    <Position X="6.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Element de Jeu\Composite.cs</FileName>
+      <HashCode>AAAAAAAABAAAAAQAQAAAAEAAgAAAAAIAAgBgAAAEYAA=</HashCode>
+      <FileName>Element de Jeu\Composites\ObjetTexture.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet.Element_de_Jeu.ListeObjet">
-    <Position X="0.5" Y="4.5" Width="1.5" />
+  <Class Name="Projet.Element_de_Jeu.Composites.Planche" Collapsed="true">
+    <Position X="5.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAgAAAAAAAAAAAAAAAAQAAAAAAAIAAAAAAAAAAAA=</HashCode>
-      <FileName>Element de Jeu\Composite.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Element de Jeu\Composites\Planche.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet.Element_de_Jeu.Composites.Sol" Collapsed="true">
+    <Position X="9.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Element de Jeu\Composites\Sol.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Projet.Game1" Collapsed="true">
-    <Position X="14.75" Y="0.5" Width="1.5" />
+    <Position X="15.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABQAFEAAAAAAAwAAAAAAAEAAAAAAAgiAAAAAAABJAAQ=</HashCode>
+      <HashCode>AAQIFEAAAAAAAwAAAAQAAEAAAAABAAgAAAAABABZABQ=</HashCode>
       <FileName>Game1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Projet.Program" Collapsed="true">
-    <Position X="13" Y="1.5" Width="1.5" />
+    <Position X="12.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet.Time.Time">
-    <Position X="9.5" Y="0.5" Width="1.5" />
+  <Class Name="Projet.HelperFarseerObject.FarseerObject" Collapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAEAAgABAAAAQAIAAAAAAQAAAgAEAAYAAAAEAAA=</HashCode>
+      <FileName>HelperFarseerObject\FarseerObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet.HelperFarseerObject.SingletonWorld" Collapsed="true">
+    <Position X="15.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAQAAAUAAAAAAAAAAAA=</HashCode>
+      <FileName>HelperFarseerObject\SingletonWorld.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet.Time.Time" Collapsed="true">
+    <Position X="1.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAgAAAAAAAAAAAAAAAECAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Time\Time.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet.Time.Chrono">
-    <Position X="10.5" Y="3.5" Width="1.5" />
+  <Class Name="Projet.Time.Chrono" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Time\Time.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet.Time.Interval">
-    <Position X="8.25" Y="3.5" Width="1.5" />
+  <Class Name="Projet.Time.Interval" Collapsed="true">
+    <Position X="2.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Time\Time.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="Projet.Element_de_Jeu.IDessiner" Collapsed="true">
-    <Position X="13" Y="2.75" Width="1.5" />
+    <Position X="12.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>Element de Jeu\IDessiner.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Projet.Element_de_Jeu.ISelectionnable" Collapsed="true">
+    <Position X="14" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAACCAAAAAAAAAAwAA=</HashCode>
+      <FileName>Element de Jeu\Selection.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

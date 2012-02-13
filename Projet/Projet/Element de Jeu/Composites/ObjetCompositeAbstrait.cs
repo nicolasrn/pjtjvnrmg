@@ -20,7 +20,7 @@ namespace Projet.Element_de_Jeu.Composites
     /// Objet abstrait servant de base au pattern composite
     /// </summary>
     [Serializable]
-    [XmlInclude(typeof(ObjetTexture)), XmlInclude(typeof(Corde)), XmlInclude(typeof(Planche)), XmlInclude(typeof(ListeObjet)), XmlInclude(typeof(Bille)), XmlInclude(typeof(Sol))]
+    [XmlInclude(typeof(ObjetTexture)), XmlInclude(typeof(Corde)), XmlInclude(typeof(Planche)), XmlInclude(typeof(ListeObjet)), XmlInclude(typeof(Bille)), XmlInclude(typeof(Sol)), XmlInclude(typeof(Panier))]
     public abstract class ObjetCompositeAbstrait
     {
         protected FarseerObject item;

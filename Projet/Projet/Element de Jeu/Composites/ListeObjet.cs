@@ -23,6 +23,8 @@ namespace Projet.Element_de_Jeu.Composites
 
         private Rectangle rect;
 
+        private bool aLier;
+
         /// <summary>
         /// constructeur
         /// <param name="rect">le rectangle d'affichage</param>
@@ -33,6 +35,7 @@ namespace Projet.Element_de_Jeu.Composites
             list = new List<ObjetCompositeAbstrait>();
             this.graphics = graphics;
             this.rect = rect;
+            aLier = true;
         }
 
         /// <summary>
@@ -45,6 +48,7 @@ namespace Projet.Element_de_Jeu.Composites
             list = new List<ObjetCompositeAbstrait>();
             this.rect = new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             this.graphics = graphics;
+            aLier = true;
         }
 
         /// <summary>
@@ -57,6 +61,7 @@ namespace Projet.Element_de_Jeu.Composites
             list = null;
             this.graphics = null;
             rect = Rectangle.Empty;
+            aLier = true;
         }
 
         /*[XmlArrayItem("ObjetCompositeAbstrait", typeof(ObjetCompositeAbstrait))]
@@ -67,6 +72,12 @@ namespace Projet.Element_de_Jeu.Composites
         {
             get { return list; }
             set { list = value; }
+        }
+
+        public Boolean ALier
+        {
+            get { return aLier; }
+            set { aLier = value; }
         }
 
         public GraphicsDeviceManager Graphics
@@ -98,68 +109,51 @@ namespace Projet.Element_de_Jeu.Composites
 
         public void lier()
         {
-            if (list.Count == 3)
+            if (aLier)
             {
-                Corde a = (list[0] as Corde);
-                Corde b = (list[1] as Corde);
-                Planche p = (list[2] as Planche);
-                a.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(),
-                    a.Item.Fixture.Body,
-                    p.Item.Fixture.Body,
-                    new Vector2(a.X - p.X, 0));
+                if (list.Count == 3)
+                {
+                    Corde a = (list[0] as Corde);
+                    Corde b = (list[1] as Corde);
+                    Planche p = (list[2] as Planche);
+                    a.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(),
+                        a.Item.Fixture.Body,
+                        p.Item.Fixture.Body,
+                        new Vector2(a.X - p.X, 0));
 
-                b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(),
-                    b.Item.Fixture.Body,
-                    p.Item.Fixture.Body,
-                    new Vector2(b.X - p.X, 0));
-            }
-            else if (list.Count == 2)
-            {
-                Corde a = list[0] as Corde;
-                Bille b = list[1] as Bille;
+                    b.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(),
+                        b.Item.Fixture.Body,
+                        p.Item.Fixture.Body,
+                        new Vector2(b.X - p.X, 0));
+                }
+                else if (list.Count == 2)
+                {
+                    Corde a = list[0] as Corde;
+                    Bille b = list[1] as Bille;
 
-                a.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(),
-                    a.Item.Fixture.Body,
-                    b.Item.Fixture.Body,
-                    new Vector2(a.X - b.X, 0));
+                    a.Joint = JointFactory.CreateRevoluteJoint(SingletonWorld.getInstance().getWorld(),
+                        a.Item.Fixture.Body,
+                        b.Item.Fixture.Body,
+                        new Vector2(a.X - b.X, 0));
+                }
             }
         }
 
         public void ignoreCollisionWith(ObjetTexture o)
         {
-            if (list.Count == 3)
+            if (aLier && list.Count == 3)
             {
                 (list[0] as Corde).ignoreCollision(o);
                 (list[1] as Corde).ignoreCollision(o);
             }
         }
 
-        private Boolean containBille(ListeObjet l)
+        public void ignoreCollisionBetween(ObjetTexture a, ObjetTexture b)
         {
-            Boolean trouve = false;
-
-            foreach(ObjetCompositeAbstrait o in l.list)
-                if (o is Bille)
-                    trouve = true;
-
-            return trouve;
-        }
-        /*
-        public void lier()
-        {
-            //foreach(ObjetCompositeAbstrait o in list)
-                if (!this.containBille(o as ListeObjet))
-                    if (o is ListeObjet)
-                        (o as ListeObjet)._lier();
+            a.Item.Fixture.Body.IgnoreCollisionWith(b.Item.Fixture.Body);
+            //b.Item.Fixture.Body.IgnoreCollisionWith(a.Item.Fixture.Body);
         }
 
-        public void ignoreCollisionWith(ObjetTexture o)
-        {
-            for (int i = 1; i < list.Count; i++)
-                if (list[i] is ListeObjet)
-                    (list[i] as ListeObjet)._ignoreCollisionWith(o);
-        }
-        //*/
         /// <summary>
         /// Pour le chargement des images
         /// </summary>
@@ -197,10 +191,31 @@ namespace Projet.Element_de_Jeu.Composites
         {
             Bille b = null;
             foreach (ObjetCompositeAbstrait o in list)
-                if (o is Bille)
-                    b = o as Bille;
-                else if (o is ListeObjet)
-                    b = (o as ListeObjet).getBille();
+            {
+                if (b == null)
+                {
+                    if (o is Bille)
+                        b = o as Bille;
+                    else if (o is ListeObjet)
+                        b = (o as ListeObjet).getBille();
+                }
+            }
+            return b;
+        }
+
+        public Panier getPanier()
+        {
+            Panier b = null;
+            foreach (ObjetCompositeAbstrait o in list)
+            {
+                if (b == null)
+                {
+                    if (o is Panier)
+                        b = o as Panier;
+                    else if (o is ListeObjet)
+                        b = (o as ListeObjet).getPanier();
+                }
+            }
             return b;
         }
     }

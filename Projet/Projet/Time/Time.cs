@@ -15,6 +15,7 @@ namespace Projet.Time
         protected float time;
         protected float timeTravail;
         protected float interval;
+        protected Boolean continu;
 
         /// <summary>
         /// Constructeur de la gestion du temps
@@ -25,13 +26,29 @@ namespace Projet.Time
         {
             this.time = this.timeTravail = time;
             this.interval = interval;
+            continu = true;
+        }
+
+        public void start(GameTime gameTime)
+        {
+            if (continu)
+                run(gameTime);
         }
 
         /// <summary>
         /// lance l'action associé au type de Timer
         /// </summary>
-        /// <param name="gameTime"></param>
-        public abstract void run(GameTime gameTime);
+        /// <param name="gameTime">Pour obtenir un temps</param>
+        protected abstract void run(GameTime gameTime);
+
+        /// <summary>
+        /// propriété permettant de stopper/relancer le compteur temps
+        /// </summary>
+        public Boolean Continue
+        {
+            get { return continu; }
+            set { continu = value; }
+        }
     }
 
     /// <summary>
@@ -54,7 +71,7 @@ namespace Projet.Time
         /// tous les intervalles execute la fonction execute
         /// </summary>
         /// <param name="gameTime">pour récupérer des infos relatives au temps</param>
-        public override void run(GameTime gameTime)
+        protected override void run(GameTime gameTime)
         {
             timeTravail -= gameTime.ElapsedGameTime.Milliseconds;
             if (timeTravail <= interval)
@@ -87,7 +104,7 @@ namespace Projet.Time
         /// tous les intervalles execute la fonction execute
         /// </summary>
         /// <param name="gameTime">pour récupérer des infos relatives au temps</param>
-        public override void run(GameTime gameTime)
+        protected override void run(GameTime gameTime)
         {
             timeTravail -= gameTime.ElapsedGameTime.Milliseconds;
             if (timeTravail <= interval)

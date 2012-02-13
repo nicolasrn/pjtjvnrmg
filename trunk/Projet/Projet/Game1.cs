@@ -14,13 +14,9 @@ using Projet.Time;
 using System.IO;
 
 using Projet.HelperFarseerObject;
-using FarseerPhysics;
 using FarseerPhysics.Dynamics;
-using FarseerPhysics.Collision.Shapes;
 
 using Projet.Element_de_Jeu.Composites;
-using FarseerPhysics.Dynamics.Joints;
-using FarseerPhysics.Factories;
 
 namespace Projet
 {

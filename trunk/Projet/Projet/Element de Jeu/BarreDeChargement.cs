@@ -35,7 +35,7 @@ namespace Projet.Element_de_Jeu
         protected override void execute()
         {
             if (width > 0)
-                width -= 20;
+                width -= 1;
         }
 
         /// <summary>

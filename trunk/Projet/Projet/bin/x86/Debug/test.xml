@@ -4,17 +4,6 @@
   <List>
     <ObjetCompositeAbstrait xsi:type="ListeObjet">
       <List>
-        <ObjetCompositeAbstrait xsi:type="Sol">
-          <TextureName>chargement</TextureName>
-          <X>0</X>
-          <Y>13.25</Y>
-          <Width>24</Width>
-          <Height>1.5</Height>
-        </ObjetCompositeAbstrait>
-      </List>
-    </ObjetCompositeAbstrait>
-    <ObjetCompositeAbstrait xsi:type="ListeObjet">
-      <List>
         <ObjetCompositeAbstrait xsi:type="Corde">
           <TextureName>corde</TextureName>
           <X>2.1</X>
@@ -37,6 +26,7 @@
           <Height>0.25</Height>
         </ObjetCompositeAbstrait>
       </List>
+      <ALier>true</ALier>
     </ObjetCompositeAbstrait>
     <ObjetCompositeAbstrait xsi:type="ListeObjet">
       <List>
@@ -62,6 +52,7 @@
           <Height>0.25</Height>
         </ObjetCompositeAbstrait>
       </List>
+      <ALier>true</ALier>
     </ObjetCompositeAbstrait>
     <ObjetCompositeAbstrait xsi:type="ListeObjet">
       <List>
@@ -80,6 +71,41 @@
           <Height>0.5</Height>
         </ObjetCompositeAbstrait>
       </List>
+      <ALier>true</ALier>
+    </ObjetCompositeAbstrait>
+    <ObjetCompositeAbstrait xsi:type="ListeObjet">
+      <List>
+        <ObjetCompositeAbstrait xsi:type="Sol">
+          <TextureName>chargement</TextureName>
+          <X>0</X>
+          <Y>13.25</Y>
+          <Width>24</Width>
+          <Height>1.5</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Sol">
+          <TextureName>chargement</TextureName>
+          <X>0</X>
+          <Y>6</Y>
+          <Width>0.5</Width>
+          <Height>14</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Sol">
+          <TextureName>chargement</TextureName>
+          <X>12</X>
+          <Y>6</Y>
+          <Width>0.5</Width>
+          <Height>14</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Panier">
+          <TextureName>planche</TextureName>
+          <X>6.666667</X>
+          <Y>8</Y>
+          <Width>2</Width>
+          <Height>0.3</Height>
+        </ObjetCompositeAbstrait>
+      </List>
+      <ALier>false</ALier>
     </ObjetCompositeAbstrait>
   </List>
+  <ALier>true</ALier>
 </ListeObjet>

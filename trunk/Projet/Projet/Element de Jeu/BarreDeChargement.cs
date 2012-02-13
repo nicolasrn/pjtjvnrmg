@@ -52,6 +52,16 @@ namespace Projet.Element_de_Jeu
                 width = value;
             }
         }
+
+        public void stop()
+        {
+            continu = false;
+        }
+
+        public void start()
+        {
+            continu = true;
+        }
     }
 
     /// <summary>
@@ -77,7 +87,7 @@ namespace Projet.Element_de_Jeu
         /// <param name="gameTime"></param>
         public void run(GameTime gameTime)
         {
-            chargementBar.run(gameTime);
+            chargementBar.start(gameTime);
         }
 
         /// <summary>
@@ -96,6 +106,24 @@ namespace Projet.Element_de_Jeu
         public void dessiner(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(this.barre, new Rectangle(0, 0, chargementBar.Width, 20), Color.White);
+        }
+
+        public Boolean TimeOver
+        {
+            get 
+            {
+                return chargementBar.Width <= 0;
+            }
+        }
+
+        public void Stop()
+        {
+            chargementBar.stop();
+        }
+
+        public void reStart()
+        {
+            chargementBar.start();
         }
     }
 }

@@ -12,7 +12,6 @@ C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Proje
 C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\FarseerPhysicsXNA.dll
 C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\FarseerPhysicsXNA.pdb
 C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\FarseerPhysicsXNA.xml
-C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\GameStateManager.dll
 C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\GameStateManager.pdb
 C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\background.xnb
 C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\blank.xnb

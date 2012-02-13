@@ -68,7 +68,7 @@ namespace Projet.Element_de_Jeu.Composites
             }
         }
 
-        public override void specialisationInit()
+        protected override void specialisationInit()
         {
             item = new FarseerObject(
                 SingletonWorld.getInstance().getWorld(),

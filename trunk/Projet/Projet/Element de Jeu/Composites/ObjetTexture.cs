@@ -22,6 +22,7 @@ namespace Projet.Element_de_Jeu.Composites
         public ObjetTexture()
             : base()
         {
+            
         }
          
         /// <summary>
@@ -35,9 +36,15 @@ namespace Projet.Element_de_Jeu.Composites
             this.width = width;
             this.height = height;
             this.specialisationInit();
+            this.detail();
         }
 
-        public abstract void specialisationInit();
+        protected virtual void detail()
+        {
+            item.Fixture.UserData = false;
+        }
+
+        protected abstract void specialisationInit();
 
         public float X
         {

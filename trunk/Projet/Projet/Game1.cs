@@ -18,7 +18,6 @@ using FarseerPhysics;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Collision.Shapes;
 
-using GameStateManagement;
 using Projet.Element_de_Jeu.Composites;
 using FarseerPhysics.Dynamics.Joints;
 using FarseerPhysics.Factories;
@@ -41,7 +40,7 @@ namespace Projet
         private BarreDeChargement barre;
         private ListeObjet listeObjet;
         private Selectionnable selectionnable;
-        private Boolean victoire;
+        private Boolean victoireDelai, victoireCollision, victoireNiveau;
         #endregion
 
         #region controlleur de clavier
@@ -89,7 +88,9 @@ namespace Projet
 
             barre = new BarreDeChargement();
             selectionnable = new Selectionnable();
-            victoire = false;
+            victoireDelai = false;
+            victoireCollision = false;
+            victoireNiveau = false;
 
             #region conception de niveau
             /*
@@ -120,27 +121,62 @@ namespace Projet
             selectionnable.Add(c);
 
             objc = new ListeObjet(Rectangle.Empty);
-            objc.Add(new Sol(0, (graphics.PreferredBackBufferHeight-37.5f)/FarseerObject.PixelPerMeter, 24, 1.5f));
-
+            objc.ALier = false;
+            objc.Add(new Sol(0, (graphics.PreferredBackBufferHeight - 37.5f) / FarseerObject.PixelPerMeter, 24, 1.5f));
+            objc.Add(new Sol(0f, 6f, 0.5f, graphics.PreferredBackBufferHeight / FarseerObject.PixelPerMeter));
+            objc.Add(new Sol(graphics.PreferredBackBufferWidth/FarseerObject.PixelPerMeter, 6f, 0.5f, graphics.PreferredBackBufferHeight / FarseerObject.PixelPerMeter));
+            objc.Add(
+                        new Panier
+                        (
+                            graphics.PreferredBackBufferWidth/FarseerObject.PixelPerMeter/1.8f, 
+                            (graphics.PreferredBackBufferHeight-300)/FarseerObject.PixelPerMeter,
+                            2, 
+                            0.3f
+                        )
+                    );
             //ici c'est la racine pour éviter le redimensionnement on utilise le constructeur qui définit un rectangle null (toutes les valeurs sont à 0)
             listeObjet = new ListeObjet("NiveauBanquise", graphics);
 
-            listeObjet.Add(objc);
             listeObjet.Add(objb);
             listeObjet.Add(obja);
             listeObjet.Add(lBille);
+            listeObjet.Add(objc);
             
             listeObjet.Initialize(Content);
             foreach (ObjetCompositeAbstrait o in listeObjet.List)
                 (o as ListeObjet).lier();
             foreach (ObjetCompositeAbstrait o in listeObjet.List)
                 (o as ListeObjet).ignoreCollisionWith(bille);
+            //listeObjet.ignoreCollisionBetween(listeObjet.getPanier(), listeObjet.getBille());
+
+            listeObjet.getBille().Item.Fixture.Body.OnCollision += new OnCollisionEventHandler(OnCollisionDetectVictory);
 
             saveLevel("test");
             //*/
             #endregion
             
             base.Initialize();
+        }
+
+        /// <summary>
+        /// détecte la collision de victoire
+        /// </summary>
+        /// <param name="fixtureA">le premier corps</param>
+        /// <param name="fixtureB">le second corps</param>
+        /// <param name="contact">aucune idée</param>
+        /// <returns>true : on ignore aucune collision à se niveau</returns>
+        bool OnCollisionDetectVictory(Fixture fixtureA, Fixture fixtureB, FarseerPhysics.Dynamics.Contacts.Contact contact)
+        {
+            try
+            {
+                if ((Boolean)fixtureA.UserData && (Boolean)fixtureB.UserData)
+                    victoireCollision = true;
+            }
+            catch(Exception e)
+            {
+                Console.Out.WriteLine(e);
+            }
+            return true;
         }
 
         /// <summary>
@@ -191,14 +227,17 @@ namespace Projet
             if (lastKeyboardState.IsKeyUp(Keys.Space) && currentKeyboardState.IsKeyDown(Keys.Space))
                 selectionnable.desactiver();
 
-            //test sur la destination de la bille
-            //si ok 
-            //victoire = true;
-
             SingletonWorld.getInstance().getWorld().Step((float)gameTime.ElapsedGameTime.TotalSeconds);
             
             listeObjet.Update();
             barre.run(gameTime);
+
+            victoireDelai = !barre.TimeOver;
+            if (victoireDelai && victoireCollision)
+            {
+                victoireNiveau = true;
+                barre.Stop();
+            }
 
             base.Update(gameTime);
         }
@@ -214,13 +253,22 @@ namespace Projet
             // TODO : ajouter le code de dessin ici
 
             spriteBatch.Begin();
-            if (!victoire)
+            
+            listeObjet.Dessin(spriteBatch);
+            selectionnable.dessiner(spriteBatch);
+            barre.dessiner(spriteBatch);
+            
+            if (victoireNiveau)
             {
-                listeObjet.Dessin(spriteBatch);
-                selectionnable.dessiner(spriteBatch);
-                spriteBatch.DrawString(this.Content.Load<SpriteFont>("gamefont"), "" + gameTime.ElapsedGameTime.TotalSeconds, new Vector2(50, 50), Color.Red);
-                //barre.dessiner(spriteBatch);
+                spriteBatch.DrawString(this.Content.Load<SpriteFont>("gamefont"), "Good Game", new Vector2(150, 250), Color.Red);
+                //nextLevel if it's not the last
             }
+            else if (!victoireDelai)
+            {
+                spriteBatch.DrawString(this.Content.Load<SpriteFont>("gamefont"), "Game Over", new Vector2(150, 250), Color.Red);
+                //restart for the biginning or quit
+            }
+
             spriteBatch.End();
 
             base.Draw(gameTime);
@@ -271,7 +319,13 @@ namespace Projet
                     listeObjet.getSelectionnable(tmp);
                     selectionnable.List = tmp;
 
-                    victoire = false;
+                    listeObjet.getBille().Detail();
+                    listeObjet.getPanier().Detail();
+                    listeObjet.getBille().Item.Fixture.Body.OnCollision += new OnCollisionEventHandler(OnCollisionDetectVictory);
+
+                    victoireCollision = false;
+                    victoireDelai = false;
+                    victoireNiveau = false;
                 }
                 catch (Exception e)
                 {

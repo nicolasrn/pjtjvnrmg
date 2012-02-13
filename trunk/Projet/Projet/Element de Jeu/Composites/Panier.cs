@@ -8,19 +8,21 @@ using FarseerPhysics.Dynamics;
 
 namespace Projet.Element_de_Jeu.Composites
 {
-
+    /// <summary>
+    /// Objet concret représentant une Planche
+    /// </summary>
     [Serializable]
-    public class Bille : ObjetTexture
+    public class Panier : ObjetTexture
     {
         /// <summary>
         /// Constructeur
         /// </summary>
-        public Bille(float x, float y, float width, float height)
-            : base("Ours", x, y, width, height)
+        public Panier(float x, float y, float width, float height)
+            : base("planche", x, y, width, height)
         {
         }
 
-        public Bille()
+        public Panier()
             : base()
         {
         }
@@ -28,20 +30,21 @@ namespace Projet.Element_de_Jeu.Composites
         protected override void specialisationInit()
         {
             item = new FarseerObject(
-                   SingletonWorld.getInstance().getWorld(),
-                   FarseerObject.FarseerObjectType.Box,
-                   x,
-                   y,
-                   width,
-                   height,
-                   new Rectangle(0, 0, 300, 300));
-            //item.Fixture.Body.BodyType = FarseerPhysics.Dynamics.BodyType.Static;
+                SingletonWorld.getInstance().getWorld(),
+                FarseerObject.FarseerObjectType.Box,
+                x,
+                y,
+                width,
+                height,
+                new Rectangle(0, 0, 48, 7));
+            //item.Fixture.Body.BodyType = FarseerPhysics.Dynamics.BodyType.Dynamic;
         }
 
         protected override void detail()
         {
             item.Fixture.UserData = true;
         }
+
         public void Detail()
         {
             detail();

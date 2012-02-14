@@ -12,17 +12,17 @@ namespace Projet.Element_de_Jeu.Composites
     /// Objet concret représentant une Planche
     /// </summary>
     [Serializable]
-    public class Sol : ObjetTexture
+    public class Mur : ObjetTexture
     {
         /// <summary>
         /// Constructeur
         /// </summary>
-        public Sol(float x, float y, float width, float height)
+        public Mur(float x, float y, float width, float height)
             : base("chargement", x, y, width, height)
         {
         }
 
-        public Sol()
+        public Mur()
             : base()
         {
         }
@@ -42,7 +42,7 @@ namespace Projet.Element_de_Jeu.Composites
 
         protected override void dessin(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
         {
-            item.draw(spriteBatch, Color.White);
+            item.draw(spriteBatch, Color.Transparent);
         }
     }
 }

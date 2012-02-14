@@ -10,7 +10,8 @@ namespace Projet
         /// </summary>
         static void Main(string[] args)
         {
-            using (Game1 game = new Game1())
+            //using (Microsoft.Xna.Framework.Game game = new Conception())
+            using (Microsoft.Xna.Framework.Game game = new Game())
             {
                 game.Run();
             }

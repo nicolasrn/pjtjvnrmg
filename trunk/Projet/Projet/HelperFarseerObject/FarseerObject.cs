@@ -26,6 +26,7 @@ namespace Projet.HelperFarseerObject
         private Rectangle destinationRectangle;
         private Texture2D texture;
         private Rectangle sourceRectangle;
+        private Rectangle boxRotated;
 
         public FarseerObject(World world, FarseerObjectType type, float x, float y, float width, float height, Rectangle sourceRectangle)
         {
@@ -64,6 +65,11 @@ namespace Projet.HelperFarseerObject
             get { return destinationRectangle; }
         }
 
+        public Rectangle BoxRatated
+        {
+            get { return boxRotated; }
+        }
+
         public static int PixelPerMeter
         {
             get { return pixelPerMeter; }
@@ -89,7 +95,7 @@ namespace Projet.HelperFarseerObject
 
         public void draw(SpriteBatch spriteBatch, Color color)
         {
-            Rectangle boxRotated = new Rectangle(destinationRectangle.Center.X,
+            boxRotated = new Rectangle(destinationRectangle.Center.X,
                 destinationRectangle.Center.Y,
                 destinationRectangle.Width,
                 destinationRectangle.Height);

@@ -154,6 +154,12 @@ namespace Projet.Element_de_Jeu.Composites
             //b.Item.Fixture.Body.IgnoreCollisionWith(a.Item.Fixture.Body);
         }
 
+        public override void delete()
+        {
+            foreach (ObjetCompositeAbstrait o in list)
+                o.delete();
+        }
+
         /// <summary>
         /// Pour le chargement des images
         /// </summary>
@@ -217,6 +223,22 @@ namespace Projet.Element_de_Jeu.Composites
                 }
             }
             return b;
+        }
+
+        public Sol getSol()
+        {
+            Sol s = null;
+            foreach (ObjetCompositeAbstrait o in list)
+            {
+                if (s == null)
+                {
+                    if (o is Sol)
+                        s = o as Sol;
+                    else if (o is ListeObjet)
+                        s = (o as ListeObjet).getSol();
+                }
+            }
+            return s;
         }
     }
 }

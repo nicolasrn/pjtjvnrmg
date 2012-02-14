@@ -31,6 +31,16 @@ namespace Projet.Element_de_Jeu.Composites
         {
         }
 
+        public override void delete()
+        {
+            base.delete();
+            if (joint != null)
+            {
+                SingletonWorld.getInstance().getWorld().RemoveJoint(joint);
+                joint = null;
+            }
+        }
+
         [System.Xml.Serialization.XmlIgnore]
         public RevoluteJoint Joint
         {

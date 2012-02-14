@@ -23,7 +23,7 @@ namespace Projet
     /// <summary>
     /// Type principal pour votre jeu
     /// </summary>
-    public class Game1 : Microsoft.Xna.Framework.Game
+    public class Conception : Microsoft.Xna.Framework.Game
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
@@ -48,7 +48,7 @@ namespace Projet
         //ScreenManager screenManager;
         #endregion
 
-        public Game1()
+        public Conception()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -89,7 +89,7 @@ namespace Projet
             victoireNiveau = false;
 
             #region conception de niveau
-            /*
+            //*
             Corde b, c;
             ObjetTexture d;
             Bille bille;
@@ -131,7 +131,7 @@ namespace Projet
                         )
                     );
             //ici c'est la racine pour éviter le redimensionnement on utilise le constructeur qui définit un rectangle null (toutes les valeurs sont à 0)
-            listeObjet = new ListeObjet("NiveauBanquise", graphics);
+            listeObjet = new ListeObjet("NiveauMer", graphics);
 
             listeObjet.Add(objb);
             listeObjet.Add(obja);
@@ -147,32 +147,11 @@ namespace Projet
 
             listeObjet.getBille().Item.Fixture.Body.OnCollision += new OnCollisionEventHandler(OnCollisionDetectVictory);
 
-            saveLevel("test");
+            saveLevel("test2");
             //*/
             #endregion
             
             base.Initialize();
-        }
-
-        /// <summary>
-        /// détecte la collision de victoire
-        /// </summary>
-        /// <param name="fixtureA">le premier corps</param>
-        /// <param name="fixtureB">le second corps</param>
-        /// <param name="contact">aucune idée</param>
-        /// <returns>true : on ignore aucune collision à se niveau</returns>
-        bool OnCollisionDetectVictory(Fixture fixtureA, Fixture fixtureB, FarseerPhysics.Dynamics.Contacts.Contact contact)
-        {
-            try
-            {
-                if ((Boolean)fixtureA.UserData && (Boolean)fixtureB.UserData)
-                    victoireCollision = true;
-            }
-            catch(Exception e)
-            {
-                Console.Out.WriteLine(e);
-            }
-            return true;
         }
 
         /// <summary>
@@ -186,7 +165,7 @@ namespace Projet
 
             // TODO : utiliser this.Content pour charger le contenu de jeu ici
             barre.init(Content);
-            loadLevel("test");
+            //loadLevel("test");
             selectionnable.init(Content);
         }
 
@@ -207,12 +186,10 @@ namespace Projet
         protected override void Update(GameTime gameTime)
         {
             // Permet au jeu de se fermer
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || 
+                Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
-                this.Exit();
-            
             lastKeyboardState = currentKeyboardState;
             currentKeyboardState = Keyboard.GetState();
 
@@ -268,6 +245,27 @@ namespace Projet
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        /// <summary>
+        /// détecte la collision de victoire
+        /// </summary>
+        /// <param name="fixtureA">le premier corps</param>
+        /// <param name="fixtureB">le second corps</param>
+        /// <param name="contact">aucune idée</param>
+        /// <returns>true : on ignore aucune collision à se niveau</returns>
+        bool OnCollisionDetectVictory(Fixture fixtureA, Fixture fixtureB, FarseerPhysics.Dynamics.Contacts.Contact contact)
+        {
+            try
+            {
+                if ((Boolean)fixtureA.UserData && (Boolean)fixtureB.UserData)
+                    victoireCollision = true;
+            }
+            catch (Exception e)
+            {
+                Console.Out.WriteLine(e);
+            }
+            return true;
         }
 
         /// <summary>

@@ -20,7 +20,7 @@ namespace Projet.Element_de_Jeu.Composites
     /// Objet abstrait servant de base au pattern composite
     /// </summary>
     [Serializable]
-    [XmlInclude(typeof(ObjetTexture)), XmlInclude(typeof(Corde)), XmlInclude(typeof(Planche)), XmlInclude(typeof(ListeObjet)), XmlInclude(typeof(Bille)), XmlInclude(typeof(Sol)), XmlInclude(typeof(Panier))]
+    [XmlInclude(typeof(ObjetTexture)), XmlInclude(typeof(Corde)), XmlInclude(typeof(Planche)), XmlInclude(typeof(ListeObjet)), XmlInclude(typeof(Bille)), XmlInclude(typeof(Sol)), XmlInclude(typeof(Panier)), XmlInclude(typeof(Mur))]
     public abstract class ObjetCompositeAbstrait
     {
         protected FarseerObject item;
@@ -67,7 +67,19 @@ namespace Projet.Element_de_Jeu.Composites
             texture = null;
             this.textureName = textureName;
         }
-        
+
+        /// <summary>
+        /// pour la suppression des objets
+        /// </summary>
+        public virtual void delete()
+        {
+            if (item != null)
+            {
+                SingletonWorld.getInstance().getWorld().RemoveBody(item.Fixture.Body);
+                item = null;
+            }
+        }
+
         /// <summary>
         /// méthode permettant d'initialiser une texture
         /// </summary>

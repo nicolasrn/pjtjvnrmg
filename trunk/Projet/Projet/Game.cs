@@ -32,11 +32,9 @@ namespace Projet
         //ScreenManager screenManager;
         #endregion
 
-        private Level level1;
-        private Level level2;
+        private Level level;
         private int levelCourant;
-
-        private List<Level> levels;
+        private List<String> listLevel;
 
         private SpriteFont font;
 
@@ -74,13 +72,11 @@ namespace Projet
 
             SingletonWorld.getInstance().getWorld();
 
+            listLevel = new List<String>();
+            listLevel.Add("test");
+            listLevel.Add("test2");
             levelCourant = 0;
-            level1 = new Level("test");
-            level2 = new Level("test2");
-
-            levels = new List<Level>();
-            levels.Add(level1);
-            levels.Add(level2);
+            level = new Level(listLevel[levelCourant]);
 
             base.Initialize();
         }
@@ -95,7 +91,7 @@ namespace Projet
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO : utiliser this.Content pour charger le contenu de jeu ici
-            levels[levelCourant].LoadContent(Content, graphics);
+            level.LoadContent(Content, graphics);
             font = Content.Load<SpriteFont>("gamefont");
         }
 
@@ -121,23 +117,32 @@ namespace Projet
                 Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
-            levels[levelCourant].Update(gameTime);
+            level.Update(gameTime);
 
-            if (levels[levelCourant].Etat == Etat.VICTOIRE)
+            if (level.Etat == Etat.VICTOIRE)
             {
                 //changement de niveau 
-                /*time -= gameTime.ElapsedGameTime.Milliseconds;
+                time -= gameTime.ElapsedGameTime.Milliseconds;
                 if (time <= 0)
                 {
-                    levels[levelCourant].delete();
-                    levelCourant++;
-                    levels[levelCourant].LoadContent(Content, graphics);
+                    level.delete();
+                    levelCourant = (levelCourant + 1) % listLevel.Count;
+                    level = new Level(listLevel[levelCourant]);
+                    level.LoadContent(Content, graphics);
                     time = 1000;
-                }*/
+                }
             }
-            else if (levels[levelCourant].Etat == Etat.DEFAITE)
+            else if (level.Etat == Etat.DEFAITE)
             {
-                //relance du jeu ou arrêt bref quelque chose
+                time -= gameTime.ElapsedGameTime.Milliseconds;
+                if (time <= 0)
+                {
+                    //relance du jeu ou arrêt bref quelque chose
+                    level.delete();
+                    level = new Level(listLevel[levelCourant]);
+                    level.LoadContent(Content, graphics); 
+                    time = 1000;
+                }
             }
 
             base.Update(gameTime);
@@ -155,13 +160,13 @@ namespace Projet
 
             spriteBatch.Begin();
 
-            levels[levelCourant].Draw(gameTime, spriteBatch);
+            level.Draw(gameTime, spriteBatch);
 
-            if (levels[levelCourant].Etat == Etat.VICTOIRE)
+            if (level.Etat == Etat.VICTOIRE)
                 spriteBatch.DrawString(font, "Good Game", new Vector2(150, 250), Color.Red);
-            else if (levels[levelCourant].Etat == Etat.DEFAITE)
+            else if (level.Etat == Etat.DEFAITE)
                 spriteBatch.DrawString(font, "Game Over", new Vector2(150, 250), Color.Red);
-            else if (levels[levelCourant].Etat == Etat.ENCOURS)
+            else if (level.Etat == Etat.ENCOURS)
                 spriteBatch.DrawString(font, "Encours", new Vector2(150, 250), Color.Red);
 
             spriteBatch.End();

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListeObjet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TextureName>NiveauJungle</TextureName>
+  <List>
+    <ObjetCompositeAbstrait xsi:type="ListeObjet">
+      <List>
+        <ObjetCompositeAbstrait xsi:type="Corde">
+          <TextureName>corde</TextureName>
+          <X>2.1</X>
+          <Y>2.75</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Corde">
+          <TextureName>corde</TextureName>
+          <X>3.95</X>
+          <Y>2.75</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Planche">
+          <TextureName>planche</TextureName>
+          <X>3</X>
+          <Y>3.38</Y>
+          <Width>2</Width>
+          <Height>0.25</Height>
+        </ObjetCompositeAbstrait>
+      </List>
+      <ALier>true</ALier>
+    </ObjetCompositeAbstrait>
+    <ObjetCompositeAbstrait xsi:type="ListeObjet">
+      <List>
+        <ObjetCompositeAbstrait xsi:type="Corde">
+          <TextureName>corde</TextureName>
+          <X>1.1</X>
+          <Y>0.75</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Corde">
+          <TextureName>corde</TextureName>
+          <X>2.95</X>
+          <Y>0.75</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Planche">
+          <TextureName>planche</TextureName>
+          <X>2</X>
+          <Y>1.38</Y>
+          <Width>2</Width>
+          <Height>0.25</Height>
+        </ObjetCompositeAbstrait>
+      </List>
+      <ALier>true</ALier>
+    </ObjetCompositeAbstrait>
+    <ObjetCompositeAbstrait xsi:type="ListeObjet">
+      <List>
+        <ObjetCompositeAbstrait xsi:type="Corde">
+          <TextureName>corde</TextureName>
+          <X>1.5</X>
+          <Y>0.1</Y>
+          <Width>0.25</Width>
+          <Height>1.25</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Bille">
+          <TextureName>Ours</TextureName>
+          <X>1.5</X>
+          <Y>0.5</Y>
+          <Width>0.5</Width>
+          <Height>0.5</Height>
+        </ObjetCompositeAbstrait>
+      </List>
+      <ALier>true</ALier>
+    </ObjetCompositeAbstrait>
+    <ObjetCompositeAbstrait xsi:type="ListeObjet">
+      <List>
+        <ObjetCompositeAbstrait xsi:type="Sol">
+          <TextureName>chargement</TextureName>
+          <X>0</X>
+          <Y>13.25</Y>
+          <Width>24</Width>
+          <Height>1.5</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Mur">
+          <TextureName>chargement</TextureName>
+          <X>0</X>
+          <Y>6</Y>
+          <Width>0.5</Width>
+          <Height>14</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Mur">
+          <TextureName>chargement</TextureName>
+          <X>12</X>
+          <Y>6</Y>
+          <Width>0.5</Width>
+          <Height>14</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Panier">
+          <TextureName>planche</TextureName>
+          <X>6.666667</X>
+          <Y>8</Y>
+          <Width>2</Width>
+          <Height>0.3</Height>
+        </ObjetCompositeAbstrait>
+      </List>
+      <ALier>false</ALier>
+    </ObjetCompositeAbstrait>
+  </List>
+  <ALier>true</ALier>
+</ListeObjet>

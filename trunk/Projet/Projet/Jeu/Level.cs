@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 using FarseerPhysics.Dynamics;
 
-namespace Projet
+namespace Projet.Jeu
 {
     public enum Etat
     {

@@ -1,4 +1,5 @@
 using System;
+using Projet.Jeu;
 
 namespace Projet
 {
@@ -11,7 +12,7 @@ namespace Projet
         static void Main(string[] args)
         {
             //using (Microsoft.Xna.Framework.Game game = new Conception())
-            using (Microsoft.Xna.Framework.Game game = new Game())
+            using (Microsoft.Xna.Framework.Game game = new Conception())
             {
                 game.Run();
             }

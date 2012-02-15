@@ -18,7 +18,7 @@ using FarseerPhysics.Dynamics;
 
 using Projet.Element_de_Jeu.Composites;
 
-namespace Projet
+namespace Projet.Jeu
 {
     /// <summary>
     /// Type principal pour votre jeu
@@ -147,7 +147,7 @@ namespace Projet
 
             listeObjet.getBille().Item.Fixture.Body.OnCollision += new OnCollisionEventHandler(OnCollisionDetectVictory);
 
-            saveLevel("test2");
+            saveLevel("test");
             //*/
             #endregion
             

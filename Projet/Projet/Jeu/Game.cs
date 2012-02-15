@@ -18,7 +18,7 @@ using FarseerPhysics.Dynamics;
 
 using Projet.Element_de_Jeu.Composites;
 
-namespace Projet
+namespace Projet.Jeu
 {
     /// <summary>
     /// Type principal pour votre jeu

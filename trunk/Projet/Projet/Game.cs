@@ -38,6 +38,9 @@ namespace Projet
 
         private SpriteFont font;
 
+        private int time = 1000;
+        private int timeTravail;
+
         public Game()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -71,12 +74,7 @@ namespace Projet
             graphics.ApplyChanges();
 
             SingletonWorld.getInstance().getWorld();
-
-            listLevel = new List<String>();
-            listLevel.Add("test");
-            listLevel.Add("test2");
-            levelCourant = 0;
-            level = new Level(listLevel[levelCourant]);
+            timeTravail = time;
 
             base.Initialize();
         }
@@ -91,6 +89,14 @@ namespace Projet
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO : utiliser this.Content pour charger le contenu de jeu ici
+            listLevel = new List<String>();
+            levelCourant = 0;
+
+            foreach (String ligne in File.ReadLines("levels.txt"))
+                listLevel.Add(ligne);
+
+            level = new Level(listLevel[levelCourant]);
+
             level.LoadContent(Content, graphics);
             font = Content.Load<SpriteFont>("gamefont");
         }
@@ -104,7 +110,6 @@ namespace Projet
 
         }
 
-        private int time = 1000;
         /// <summary>
         /// Permet au jeu d’exécuter la logique de mise à jour du monde,
         /// de vérifier les collisions, de gérer les entrées et de lire l’audio.
@@ -122,26 +127,26 @@ namespace Projet
             if (level.Etat == Etat.VICTOIRE)
             {
                 //changement de niveau 
-                time -= gameTime.ElapsedGameTime.Milliseconds;
-                if (time <= 0)
+                timeTravail -= gameTime.ElapsedGameTime.Milliseconds;
+                if (timeTravail <= 0)
                 {
                     level.delete();
                     levelCourant = (levelCourant + 1) % listLevel.Count;
                     level = new Level(listLevel[levelCourant]);
                     level.LoadContent(Content, graphics);
-                    time = 1000;
+                    timeTravail = time;
                 }
             }
             else if (level.Etat == Etat.DEFAITE)
             {
-                time -= gameTime.ElapsedGameTime.Milliseconds;
-                if (time <= 0)
+                timeTravail -= gameTime.ElapsedGameTime.Milliseconds;
+                if (timeTravail <= 0)
                 {
                     //relance du jeu ou arrêt bref quelque chose
                     level.delete();
                     level = new Level(listLevel[levelCourant]);
-                    level.LoadContent(Content, graphics); 
-                    time = 1000;
+                    level.LoadContent(Content, graphics);
+                    timeTravail = time;
                 }
             }
 

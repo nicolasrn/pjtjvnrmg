@@ -17,6 +17,7 @@ using Projet.HelperFarseerObject;
 using FarseerPhysics.Dynamics;
 
 using Projet.Element_de_Jeu.Composites;
+using GameStateManagement;
 
 namespace Projet.Jeu
 {
@@ -25,21 +26,26 @@ namespace Projet.Jeu
     /// </summary>
     public class Game : Microsoft.Xna.Framework.Game
     {
-        private GraphicsDeviceManager graphics;
+        public GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
         
         #region déclaration ScreenManager
-        //ScreenManager screenManager;
+        ScreenManager screenManager;
         #endregion
 
-        private Level level;
+        /*private Level level;
         private int levelCourant;
         private List<String> listLevel;
 
         private SpriteFont font;
 
         private int time = 1000;
-        private int timeTravail;
+        private int timeTravail;*/
+
+        static readonly string[] preloadAssets =
+        {
+            "gradient",
+        };
 
         public Game()
         {
@@ -47,7 +53,7 @@ namespace Projet.Jeu
             Content.RootDirectory = "Content";
 
             #region ScreenManager
-            /*
+            //*
             //Create the screen manager component.
             screenManager = new ScreenManager(this);
 
@@ -56,6 +62,7 @@ namespace Projet.Jeu
             // Activate the first screens.
             screenManager.AddScreen(new BackgroundScreen(), null);
             screenManager.AddScreen(new MainMenuScreen(), null);
+            
             //*/
             #endregion
         }
@@ -73,8 +80,8 @@ namespace Projet.Jeu
             graphics.PreferredBackBufferWidth = 600;
             graphics.ApplyChanges();
 
-            SingletonWorld.getInstance().getWorld();
-            timeTravail = time;
+            //SingletonWorld.getInstance().getWorld();
+            //timeTravail = time;
 
             base.Initialize();
         }
@@ -89,7 +96,12 @@ namespace Projet.Jeu
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO : utiliser this.Content pour charger le contenu de jeu ici
-            listLevel = new List<String>();
+            foreach (string asset in preloadAssets)
+            {
+                Content.Load<object>(asset);
+            }
+
+            /*listLevel = new List<String>();
             levelCourant = 0;
 
             foreach (String ligne in File.ReadLines("levels.txt"))
@@ -98,7 +110,7 @@ namespace Projet.Jeu
             level = new Level(listLevel[levelCourant]);
 
             level.LoadContent(Content, graphics);
-            font = Content.Load<SpriteFont>("gamefont");
+            font = Content.Load<SpriteFont>("gamefont");*/
         }
 
         /// <summary>
@@ -118,7 +130,7 @@ namespace Projet.Jeu
         protected override void Update(GameTime gameTime)
         {
             // Permet au jeu de se fermer
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
+            /*if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
                 Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
@@ -148,7 +160,7 @@ namespace Projet.Jeu
                     level.LoadContent(Content, graphics);
                     timeTravail = time;
                 }
-            }
+            }*/
 
             base.Update(gameTime);
         }
@@ -162,7 +174,7 @@ namespace Projet.Jeu
             GraphicsDevice.Clear(Color.White);
 
             // TODO : ajouter le code de dessin ici
-
+            /*
             spriteBatch.Begin();
 
             level.Draw(gameTime, spriteBatch);
@@ -175,7 +187,7 @@ namespace Projet.Jeu
                 spriteBatch.DrawString(font, "Encours", new Vector2(150, 250), Color.Red);
 
             spriteBatch.End();
-
+            */
             base.Draw(gameTime);
         }
 

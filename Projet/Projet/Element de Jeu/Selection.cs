@@ -43,7 +43,7 @@ namespace Projet.Element_de_Jeu
     /// <summary>
     /// classe qui permet de switcher entre les éléments selectionnable
     /// </summary>
-    class Selectionnable : IDessiner
+    class Selectionnable : IDessiner, IEnumerable<ISelectionnable>
     {
         private List<ISelectionnable> list;
         private ISelectionnable courant;
@@ -75,6 +75,7 @@ namespace Projet.Element_de_Jeu
         public ISelectionnable Courant
         {
             get { return courant; }
+            set { courant = value; }
         }
 
         /// <summary>
@@ -126,8 +127,8 @@ namespace Projet.Element_de_Jeu
         public void dessiner(SpriteBatch spriteBatch)
         {
             //spriteBatch.Begin();
-            int coeff = HelperFarseerObject.FarseerObject.PixelPerMeter;
-            Rectangle rect = new Rectangle((int)(courant.BoundsX * coeff)-20, (int)(courant.BoundsY * coeff)-20, 20, 20);/*(int)(courant.BoundsWidth * coeff), (int)(courant.BoundsHeight * coeff));*/
+            int coeff = 1;//HelperFarseerObject.FarseerObject.PixelPerMeter;
+            Rectangle rect = new Rectangle((int)(courant.BoundsX * coeff)-20, (int)(courant.BoundsY * coeff), 20, 20);/*(int)(courant.BoundsWidth * coeff), (int)(courant.BoundsHeight * coeff));*/
             spriteBatch.Draw(texture, rect, null, Color.White);
             //spriteBatch.End();
         }
@@ -135,6 +136,16 @@ namespace Projet.Element_de_Jeu
         public void desactiver()
         {
             courant.Desactiver();
+        }
+
+        public IEnumerator<ISelectionnable> GetEnumerator()
+        {
+            return list.GetEnumerator();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return list.GetEnumerator();
         }
     }
 }

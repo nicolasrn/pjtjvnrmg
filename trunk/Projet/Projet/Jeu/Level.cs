@@ -37,6 +37,8 @@ namespace Projet.Jeu
 
         private Etat etat;
 
+        private Texture2D texSouris;
+
         public Level(String name)
         {
             this.name = name;
@@ -57,6 +59,8 @@ namespace Projet.Jeu
             selectionnable = new Selectionnable();
             etat = Etat.ENCOURS;
 
+            texSouris = content.Load<Texture2D>("gradient");
+
             barre.init(content);
             loadLevel(name, graphics, content);
             selectionnable.init(content);
@@ -73,6 +77,19 @@ namespace Projet.Jeu
                 selectionnable.precedant();
             if (lastKeyboardState.IsKeyUp(Keys.Space) && currentKeyboardState.IsKeyDown(Keys.Space))
                 selectionnable.desactiver();
+
+            foreach (ISelectionnable sel in selectionnable)
+            {
+                Rectangle r = new Rectangle((int)sel.BoundsX, (int)sel.BoundsY, (int)sel.BoundsWidth, (int)sel.BoundsHeight);
+                Rectangle s = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, 5, 5);
+                if (r.Intersects(s))
+                {
+                    selectionnable.Courant = sel;
+                    if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+                        selectionnable.desactiver();
+                    break;
+                }
+            }
 
             SingletonWorld.getInstance().getWorld().Step((float)gameTime.ElapsedGameTime.TotalSeconds);
 
@@ -104,6 +121,7 @@ namespace Projet.Jeu
             listeObjet.Dessin(spriteBatch);
             selectionnable.dessiner(spriteBatch);
             barre.dessiner(spriteBatch);
+            spriteBatch.Draw(texSouris, new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, 5, 5), Color.White);
             /*
             if (victoireNiveau)
             {

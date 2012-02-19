@@ -11,8 +11,8 @@ namespace Projet
         /// </summary>
         static void Main(string[] args)
         {
-            using (Microsoft.Xna.Framework.Game game = new Conception())
-            //using (Microsoft.Xna.Framework.Game game = new Game())
+            //using (Microsoft.Xna.Framework.Game game = new Conception())
+            using (Microsoft.Xna.Framework.Game game = new Game())
             {
                 game.Run();
             }

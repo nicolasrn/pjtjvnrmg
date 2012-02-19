@@ -50,22 +50,22 @@ namespace Projet.Element_de_Jeu.Composites
 
         public float BoundsX
         {
-            get { return x; }
+            get { /*return x;*/return item.DestinationRectangle.X; }
         }
 
         public float BoundsY
         {
-            get { return y; }
+            get { /*return y;*/return item.DestinationRectangle.Y; }
         }
 
         public float BoundsWidth
         {
-            get { return width; }
+            get { /*return width;*/return item.DestinationRectangle.Width; }
         }
 
         public float BoundsHeight
         {
-            get { return height; }
+            get { /*return height;*/return item.DestinationRectangle.Height; }
         }
 
         public void Desactiver()

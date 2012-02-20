@@ -36,7 +36,7 @@ namespace Projet.Element_de_Jeu.Composites
                 y,
                 width,
                 height,
-                new Rectangle(0, 0, 48, 7));
+                new Rectangle(0, 0, 512, 512));
             //item.Fixture.Body.BodyType = FarseerPhysics.Dynamics.BodyType.Dynamic;
         }
     }

@@ -29,7 +29,7 @@ namespace Projet.Jeu
         private SpriteBatch spriteBatch;
         
         #region variable de conception de niveau
-        private ListeObjet obja, objb, objc, lBille;
+        private ListeObjet obja, objb, objc, objd, obje, objf, objg, objh, obji, objj, objk, objl, objm, objn, objo, lBille;
         #endregion
 
         #region variable permanante
@@ -89,52 +89,68 @@ namespace Projet.Jeu
             victoireNiveau = false;
 
             #region conception de niveau
-            //*
+            //balle + corde
             Corde b, c;
             ObjetTexture d;
             Bille bille;
 
             lBille = new ListeObjet(Rectangle.Empty);
-            lBille.Add(b = new Corde(1.5f, 0.10f, 0.25f, 1.25f));
-            lBille.Add(d = (bille = new Bille(1.5f, 0.5f, 0.5f, 0.5f)));
+            lBille.Add(b = new Corde(6f, 1f, 0.25f, 1.25f));
+            lBille.Add(d = (bille = new Bille(6f, 1.5f, 1, 1)));
             selectionnable.Add(b);
-            
+           
+            //1
             obja = new ListeObjet(Rectangle.Empty);
-            obja.Add(b = new Corde(1.10f, 0.75f, 0.25f, 1f)); 
-            obja.Add(c = new Corde(2.95f, 0.75f, 0.25f, 1f)); 
-            obja.Add(d = new Planche(2f, 1.38f, 2f, 0.25f));
+            obja.Add(b = new Corde(4.1f, 3f, 0.25f, 1f));
+            obja.Add(c = new Corde(7.95f, 3f, 0.25f, 1f));
+            obja.Add(d = new Planche(6f, 3.5f, 4f, 0.25f));
 
             selectionnable.Add(b);
             selectionnable.Add(c);
 
+            //2
             objb = new ListeObjet(Rectangle.Empty);
-            
-            objb.Add(b = new Corde(1.10f+1, 0.75f+2, 0.25f, 1f));
-            objb.Add(c = new Corde(2.95f+1, 0.75f+2, 0.25f, 1f));
-            objb.Add(d = new Planche(2f+1, 1.38f+2, 2f, 0.25f));
+            objb.Add(b = new Corde(3.9f, 5f, 0.25f, 1f));
+            objb.Add(c = new Corde(8.15f, 5f, 0.25f, 1f));
+            objb.Add(d = new Planche(6f, 5.5f, 4.4f, 0.25f));
+
+            selectionnable.Add(b);
+            selectionnable.Add(c);
+
+            //3
+            obje = new ListeObjet(Rectangle.Empty);
+            obje.Add(b = new Corde(3.7f, 7f, 0.25f, 1f));
+            obje.Add(c = new Corde(8.35f, 7f, 0.25f, 1f));
+            obje.Add(d = new Planche(6f, 7.5f, 4.8f, 0.25f));
 
             selectionnable.Add(b);
             selectionnable.Add(c);
 
             objc = new ListeObjet(Rectangle.Empty);
             objc.ALier = false;
-            objc.Add(new Sol(0, (graphics.PreferredBackBufferHeight - 37.5f) / FarseerObject.PixelPerMeter, 24, 1.5f));
+            objc.Add(new Sol(0, (graphics.PreferredBackBufferHeight) / FarseerObject.PixelPerMeter, 24, 1.5f));
             objc.Add(new Sol(0f, 6f, 0.5f, graphics.PreferredBackBufferHeight / FarseerObject.PixelPerMeter));
             objc.Add(new Sol(graphics.PreferredBackBufferWidth/FarseerObject.PixelPerMeter, 6f, 0.5f, graphics.PreferredBackBufferHeight / FarseerObject.PixelPerMeter));
             objc.Add(
                         new Panier
                         (
-                            graphics.PreferredBackBufferWidth/FarseerObject.PixelPerMeter/1.8f, 
-                            (graphics.PreferredBackBufferHeight-300)/FarseerObject.PixelPerMeter,
+                            6f, 
+                            13.5f,
                             2, 
-                            0.3f
+                            0.5f
                         )
                     );
+
+
+
+            objc.Add(new Obstacle(5f, 12.5f, 0.25f, 1f));
+            objc.Add(new Obstacle(7f, 12.5f, 0.25f, 1f));
             //ici c'est la racine pour éviter le redimensionnement on utilise le constructeur qui définit un rectangle null (toutes les valeurs sont à 0)
             listeObjet = new ListeObjet("NiveauMer", graphics);
 
-            listeObjet.Add(objb);
             listeObjet.Add(obja);
+            listeObjet.Add(objb);
+            listeObjet.Add(obje);
             listeObjet.Add(lBille);
             listeObjet.Add(objc);
             

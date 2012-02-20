@@ -18,7 +18,7 @@ namespace Projet.Element_de_Jeu.Composites
         /// Constructeur
         /// </summary>
         public Panier(float x, float y, float width, float height)
-            : base("planche", x, y, width, height)
+            : base("panier", x, y, width, height)
         {
         }
 
@@ -36,7 +36,7 @@ namespace Projet.Element_de_Jeu.Composites
                 y,
                 width,
                 height,
-                new Rectangle(0, 0, 48, 7));
+                new Rectangle(0, 0, 200, 100));
             //item.Fixture.Body.BodyType = FarseerPhysics.Dynamics.BodyType.Dynamic;
         }
 

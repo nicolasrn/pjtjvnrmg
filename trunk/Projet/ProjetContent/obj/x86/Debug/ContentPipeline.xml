@@ -2,31 +2,13 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>corde.jpg</Source>
-      <Name>corde</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\corde.xnb</Output>
-      <Time>2012-01-31T21:45:28.634+01:00</Time>
-    </Item>
-    <Item>
       <Source>chargement.bmp</Source>
       <Name>chargement</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\chargement.xnb</Output>
-      <Time>2012-02-14T13:37:02.3463+01:00</Time>
-    </Item>
-    <Item>
-      <Source>planche.bmp</Source>
-      <Name>planche</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\planche.xnb</Output>
-      <Time>2012-01-31T22:36:44.1356+01:00</Time>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\chargement.xnb</Output>
+      <Time>2012-02-20T17:13:21.3545346+01:00</Time>
     </Item>
     <Item>
       <Source>fond.bmp</Source>
@@ -34,17 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\fond.xnb</Output>
-      <Time>2012-02-01T12:44:49.9651+01:00</Time>
-    </Item>
-    <Item>
-      <Source>selection.bmp</Source>
-      <Name>selection</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\selection.xnb</Output>
-      <Time>2012-02-07T10:21:32.13425+01:00</Time>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\fond.xnb</Output>
+      <Time>2012-02-08T13:07:40.1075185+01:00</Time>
     </Item>
     <Item>
       <Source>background.png</Source>
@@ -52,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\background.xnb</Output>
-      <Time>2012-02-04T18:09:22.4432+01:00</Time>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\background.xnb</Output>
+      <Time>2012-02-08T13:07:40.099518+01:00</Time>
     </Item>
     <Item>
       <Source>blank.png</Source>
@@ -61,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\blank.xnb</Output>
-      <Time>2012-02-04T18:09:22.4432+01:00</Time>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\blank.xnb</Output>
+      <Time>2012-02-08T13:07:41.8036155+01:00</Time>
     </Item>
     <Item>
       <Source>gradient.png</Source>
@@ -70,26 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\gradient.xnb</Output>
-      <Time>2012-02-04T18:09:22.4432+01:00</Time>
-    </Item>
-    <Item>
-      <Source>gamefont.spritefont</Source>
-      <Name>gamefont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\gamefont.xnb</Output>
-      <Time>2012-02-04T18:09:22.4432+01:00</Time>
-    </Item>
-    <Item>
-      <Source>menufont.spritefont</Source>
-      <Name>menufont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\menufont.xnb</Output>
-      <Time>2012-02-04T18:09:22.4432+01:00</Time>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\gradient.xnb</Output>
+      <Time>2012-02-08T13:07:40.0395146+01:00</Time>
     </Item>
     <Item>
       <Source>Dauphins.png</Source>
@@ -97,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\Dauphins.xnb</Output>
-      <Time>2012-02-07T10:01:13.10075+01:00</Time>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\Dauphins.xnb</Output>
+      <Time>2012-02-08T13:07:40.0735165+01:00</Time>
     </Item>
     <Item>
       <Source>Elephants.png</Source>
@@ -106,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\Elephants.xnb</Output>
-      <Time>2012-02-07T10:01:13.17575+01:00</Time>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\Elephants.xnb</Output>
+      <Time>2012-02-08T13:07:40.1155189+01:00</Time>
     </Item>
     <Item>
       <Source>NiveauBanquise.jpg</Source>
@@ -115,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\NiveauBanquise.xnb</Output>
-      <Time>2012-02-07T10:01:12.16825+01:00</Time>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\NiveauBanquise.xnb</Output>
+      <Time>2012-02-08T13:07:40.0695163+01:00</Time>
     </Item>
     <Item>
       <Source>NiveauFerme.jpg</Source>
@@ -124,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\NiveauFerme.xnb</Output>
-      <Time>2012-02-07T10:01:12.23075+01:00</Time>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\NiveauFerme.xnb</Output>
+      <Time>2012-02-08T13:07:40.046515+01:00</Time>
     </Item>
     <Item>
       <Source>NiveauForet.jpg</Source>
@@ -133,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\NiveauForet.xnb</Output>
-      <Time>2012-02-07T10:01:12.42325+01:00</Time>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\NiveauForet.xnb</Output>
+      <Time>2012-02-08T13:07:40.1205192+01:00</Time>
     </Item>
     <Item>
       <Source>NiveauJungle.jpg</Source>
@@ -142,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\NiveauJungle.xnb</Output>
-      <Time>2012-02-07T10:01:12.53325+01:00</Time>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\NiveauJungle.xnb</Output>
+      <Time>2012-02-08T13:07:41.8166162+01:00</Time>
     </Item>
     <Item>
       <Source>NiveauMer.jpg</Source>
@@ -151,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\NiveauMer.xnb</Output>
-      <Time>2012-02-07T10:01:12.89575+01:00</Time>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\NiveauMer.xnb</Output>
+      <Time>2012-02-08T13:07:41.7996152+01:00</Time>
     </Item>
     <Item>
       <Source>NiveauSavane.jpg</Source>
@@ -160,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\NiveauSavane.xnb</Output>
-      <Time>2012-02-07T10:01:12.98325+01:00</Time>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\NiveauSavane.xnb</Output>
+      <Time>2012-02-08T13:07:40.1125187+01:00</Time>
     </Item>
     <Item>
       <Source>Ours.png</Source>
@@ -169,8 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\Ours.xnb</Output>
-      <Time>2012-02-07T10:01:13.26325+01:00</Time>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\Ours.xnb</Output>
+      <Time>2012-02-08T13:07:41.8076157+01:00</Time>
     </Item>
     <Item>
       <Source>Poules.png</Source>
@@ -178,8 +133,80 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\Poules.xnb</Output>
-      <Time>2012-02-07T10:01:13.30825+01:00</Time>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\Poules.xnb</Output>
+      <Time>2012-02-08T13:07:40.0615158+01:00</Time>
+    </Item>
+    <Item>
+      <Source>gamefont.spritefont</Source>
+      <Name>gamefont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\gamefont.xnb</Output>
+      <Time>2012-02-08T13:07:40.064516+01:00</Time>
+    </Item>
+    <Item>
+      <Source>menufont.spritefont</Source>
+      <Name>menufont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\menufont.xnb</Output>
+      <Time>2012-02-08T13:07:40.0525153+01:00</Time>
+    </Item>
+    <Item>
+      <Source>rondin.png</Source>
+      <Name>rondin</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\rondin.xnb</Output>
+      <Time>2012-02-20T16:30:07.6729937+01:00</Time>
+    </Item>
+    <Item>
+      <Source>planche.jpg</Source>
+      <Name>planche</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\planche.xnb</Output>
+      <Time>2012-02-17T09:18:41.3055866+01:00</Time>
+    </Item>
+    <Item>
+      <Source>corde.png</Source>
+      <Name>corde</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\corde.xnb</Output>
+      <Time>2012-02-17T09:24:35.3367136+01:00</Time>
+    </Item>
+    <Item>
+      <Source>panier.png</Source>
+      <Name>panier</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\panier.xnb</Output>
+      <Time>2012-02-20T16:54:05.8827997+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bille.png</Source>
+      <Name>bille</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\bille.xnb</Output>
+      <Time>2012-02-20T17:02:39.5193248+01:00</Time>
+    </Item>
+    <Item>
+      <Source>selection.png</Source>
+      <Name>selection</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\selection.xnb</Output>
+      <Time>2012-02-20T17:04:48.9867946+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -187,39 +214,39 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\ProjetContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\ProjetContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\ProjetContent\</RootDirectory>
+      <LoggerRootDirectory>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\</LoggerRootDirectory>
+      <IntermediateDirectory>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\ProjetContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>D:\Documents\Fac\FAC M2\Jeux vidéo\Projet\Projet\Projet\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
         <Value>2010-08-23T13:41:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
         <Value>2010-08-23T13:41:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
         <Value>2010-08-23T13:41:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
         <Value>2010-08-23T13:41:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
         <Value>2010-08-23T13:41:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
         <Value>2010-08-23T13:41:18+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2012-01-24T16:15:07.0901+01:00</Value>
+        <Value>2012-01-31T09:04:41.5287898+01:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

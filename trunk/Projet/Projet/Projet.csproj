@@ -112,6 +112,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Element de Jeu\Composites\Obstacle.cs" />
     <Compile Include="Element de Jeu\Composites\Mur.cs" />
     <Compile Include="Jeu\Game.cs" />
     <Compile Include="Element de Jeu\BarreDeChargement.cs" />

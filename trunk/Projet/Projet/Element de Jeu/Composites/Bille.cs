@@ -16,7 +16,7 @@ namespace Projet.Element_de_Jeu.Composites
         /// Constructeur
         /// </summary>
         public Bille(float x, float y, float width, float height)
-            : base("Ours", x, y, width, height)
+            : base("bille", x, y, width, height)
         {
         }
 
@@ -29,7 +29,7 @@ namespace Projet.Element_de_Jeu.Composites
         {
             item = new FarseerObject(
                    SingletonWorld.getInstance().getWorld(),
-                   FarseerObject.FarseerObjectType.Box,
+                   FarseerObject.FarseerObjectType.Ball,
                    x,
                    y,
                    width,

@@ -42,10 +42,11 @@ namespace GameStateManagement
         private Level level;
         private int levelCourant;
         private List<String> listLevel;
+        private List<Texture2D> textureVictoire;
 
         private SpriteFont font;
 
-        private int time = 1000;
+        private int time = 2000;
         private int timeTravail;
 
         private GraphicsDeviceManager graphics;
@@ -63,7 +64,6 @@ namespace GameStateManagement
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
         }
 
-
         /// <summary>
         /// Load graphics content for the game.
         /// </summary>
@@ -76,15 +76,19 @@ namespace GameStateManagement
 
             gameFont = content.Load<SpriteFont>("gamefont");
 
-
             SingletonWorld.getInstance().getWorld();
             timeTravail = time;
 
             listLevel = new List<String>();
+            textureVictoire = new List<Texture2D>();
             levelCourant = 0;
 
             foreach (String ligne in File.ReadLines("levels.txt"))
-                listLevel.Add(ligne);
+            {
+                String[] elements = ligne.Split(';');
+                listLevel.Add(elements[0]);
+                textureVictoire.Add(content.Load<Texture2D>(elements[1]));
+            }
 
             level = new Level(listLevel[levelCourant]);
 
@@ -206,10 +210,13 @@ namespace GameStateManagement
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
 
             spriteBatch.Begin();
-            level.Draw(gameTime, spriteBatch);
 
+            level.Draw(gameTime, spriteBatch);
             if (level.Etat == Etat.VICTOIRE)
+            {
                 spriteBatch.DrawString(gameFont, "Good Game", new Vector2(150, 250), Color.Red);
+                spriteBatch.Draw(textureVictoire[levelCourant], level.ListeObjet.getBille().Item.DestinationRectangle, Color.White);
+            }
             else if (level.Etat == Etat.DEFAITE)
                 spriteBatch.DrawString(gameFont, "Game Over", new Vector2(150, 250), Color.Red);
             else if (level.Etat == Etat.ENCOURS)

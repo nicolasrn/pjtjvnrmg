@@ -29,19 +29,19 @@ namespace GameStateManagement
         {
             // Create our menu entries.
             MenuEntry playGameMenuEntry = new MenuEntry("Jouer");
-            //MenuEntry rulesMenuEntry = new MenuEntry("Règles");
+            MenuEntry rulesMenuEntry = new MenuEntry("Regles");
             //MenuEntry optionsMenuEntry = new MenuEntry("Options");
             MenuEntry exitMenuEntry = new MenuEntry("Quitter");
 
             // Hook up menu event handlers.
             playGameMenuEntry.Selected += PlayGameMenuEntrySelected;
-            //rulesMenuEntry.Selected += RulesMenuEntrySelected;
+            rulesMenuEntry.Selected += RulesMenuEntrySelected;
             //optionsMenuEntry.Selected += OptionsMenuEntrySelected;
             exitMenuEntry.Selected += OnCancel;
 
             // Add entries to the menu.
             MenuEntries.Add(playGameMenuEntry);
-            //MenuEntries.Add(rulesMenuEntry);
+            MenuEntries.Add(rulesMenuEntry);
             //MenuEntries.Add(optionsMenuEntry);
             MenuEntries.Add(exitMenuEntry);
 

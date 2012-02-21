@@ -53,6 +53,11 @@ namespace Projet.Jeu
             get { return etat; }
         }
 
+        public ListeObjet ListeObjet
+        {
+            get { return listeObjet; }
+        }
+
         public void LoadContent(ContentManager content, GraphicsDeviceManager graphics)
         {
             barre = new BarreDeChargement();
@@ -96,8 +101,8 @@ namespace Projet.Jeu
             listeObjet.Update();
             barre.run(gameTime);
 
-            Rectangle a = new Rectangle(bille.Item.BoxRatated.X, bille.Item.BoxRatated.Y + bille.Item.BoxRatated.Height / 2, bille.Item.BoxRatated.Width, bille.Item.BoxRatated.Height);
-            Rectangle b = new Rectangle(sol.Item.BoxRatated.X, sol.Item.BoxRatated.Y - sol.Item.BoxRatated.Height / 2, sol.Item.BoxRatated.Width, sol.Item.BoxRatated.Height);
+            Rectangle a = new Rectangle(bille.Item.BoxRatated.X, bille.Item.BoxRatated.Y, bille.Item.BoxRatated.Width, bille.Item.BoxRatated.Height);
+            Rectangle b = new Rectangle(sol.Item.BoxRatated.X, sol.Item.BoxRatated.Y, sol.Item.BoxRatated.Width, sol.Item.BoxRatated.Height);
 
             victoireDelai = !barre.TimeOver;
             if (victoireDelai && victoireCollision) //verification victoire

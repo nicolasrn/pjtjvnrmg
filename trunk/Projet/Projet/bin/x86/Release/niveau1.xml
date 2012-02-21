@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListeObjet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TextureName>NiveauBanquise</TextureName>
+  <List>
+    <ObjetCompositeAbstrait xsi:type="ListeObjet">
+      <List>
+        <ObjetCompositeAbstrait xsi:type="Corde">
+          <TextureName>corde</TextureName>
+          <X>1</X>
+          <Y>3</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Corde">
+          <TextureName>corde</TextureName>
+          <X>2.85</X>
+          <Y>3</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Planche">
+          <TextureName>planche</TextureName>
+          <X>1.9</X>
+          <Y>3.5</Y>
+          <Width>2</Width>
+          <Height>0.25</Height>
+        </ObjetCompositeAbstrait>
+      </List>
+      <ALier>true</ALier>
+    </ObjetCompositeAbstrait>
+    <ObjetCompositeAbstrait xsi:type="ListeObjet">
+      <List>
+        <ObjetCompositeAbstrait xsi:type="Corde">
+          <TextureName>corde</TextureName>
+          <X>5</X>
+          <Y>6</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Corde">
+          <TextureName>corde</TextureName>
+          <X>6.85</X>
+          <Y>6</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Planche">
+          <TextureName>planche</TextureName>
+          <X>5.9</X>
+          <Y>6.5</Y>
+          <Width>2</Width>
+          <Height>0.25</Height>
+        </ObjetCompositeAbstrait>
+      </List>
+      <ALier>true</ALier>
+    </ObjetCompositeAbstrait>
+    <ObjetCompositeAbstrait xsi:type="ListeObjet">
+      <List>
+        <ObjetCompositeAbstrait xsi:type="Corde">
+          <TextureName>corde</TextureName>
+          <X>3</X>
+          <Y>4.5</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Corde">
+          <TextureName>corde</TextureName>
+          <X>4.85</X>
+          <Y>4.5</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Planche">
+          <TextureName>planche</TextureName>
+          <X>3.9</X>
+          <Y>5</Y>
+          <Width>2</Width>
+          <Height>0.25</Height>
+        </ObjetCompositeAbstrait>
+      </List>
+      <ALier>true</ALier>
+    </ObjetCompositeAbstrait>
+    <ObjetCompositeAbstrait xsi:type="ListeObjet">
+      <List>
+        <ObjetCompositeAbstrait xsi:type="Corde">
+          <TextureName>corde</TextureName>
+          <X>7</X>
+          <Y>7.5</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Corde">
+          <TextureName>corde</TextureName>
+          <X>8.85</X>
+          <Y>7.5</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Planche">
+          <TextureName>planche</TextureName>
+          <X>7.9</X>
+          <Y>8</Y>
+          <Width>2</Width>
+          <Height>0.25</Height>
+        </ObjetCompositeAbstrait>
+      </List>
+      <ALier>true</ALier>
+    </ObjetCompositeAbstrait>
+    <ObjetCompositeAbstrait xsi:type="ListeObjet">
+      <List>
+        <ObjetCompositeAbstrait xsi:type="Corde">
+          <TextureName>corde</TextureName>
+          <X>9</X>
+          <Y>9</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Corde">
+          <TextureName>corde</TextureName>
+          <X>10.85</X>
+          <Y>9</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Planche">
+          <TextureName>planche</TextureName>
+          <X>9.9</X>
+          <Y>9.5</Y>
+          <Width>2</Width>
+          <Height>0.25</Height>
+        </ObjetCompositeAbstrait>
+      </List>
+      <ALier>true</ALier>
+    </ObjetCompositeAbstrait>
+    <ObjetCompositeAbstrait xsi:type="ListeObjet">
+      <List>
+        <ObjetCompositeAbstrait xsi:type="Corde">
+          <TextureName>corde</TextureName>
+          <X>6.8</X>
+          <Y>10.5</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Corde">
+          <TextureName>corde</TextureName>
+          <X>8.65</X>
+          <Y>10.5</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Planche">
+          <TextureName>planche</TextureName>
+          <X>7.7</X>
+          <Y>11</Y>
+          <Width>2</Width>
+          <Height>0.25</Height>
+        </ObjetCompositeAbstrait>
+      </List>
+      <ALier>true</ALier>
+    </ObjetCompositeAbstrait>
+    <ObjetCompositeAbstrait xsi:type="ListeObjet">
+      <List>
+        <ObjetCompositeAbstrait xsi:type="Corde">
+          <TextureName>corde</TextureName>
+          <X>2</X>
+          <Y>1</Y>
+          <Width>0.25</Width>
+          <Height>1.25</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Bille">
+          <TextureName>bille</TextureName>
+          <X>2</X>
+          <Y>1.5</Y>
+          <Width>1</Width>
+          <Height>1</Height>
+        </ObjetCompositeAbstrait>
+      </List>
+      <ALier>true</ALier>
+    </ObjetCompositeAbstrait>
+    <ObjetCompositeAbstrait xsi:type="ListeObjet">
+      <List>
+        <ObjetCompositeAbstrait xsi:type="Sol">
+          <TextureName>chargement</TextureName>
+          <X>0</X>
+          <Y>14</Y>
+          <Width>24</Width>
+          <Height>1.5</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Mur">
+          <TextureName>chargement</TextureName>
+          <X>0</X>
+          <Y>6</Y>
+          <Width>0.5</Width>
+          <Height>14</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Mur">
+          <TextureName>chargement</TextureName>
+          <X>12</X>
+          <Y>6</Y>
+          <Width>0.5</Width>
+          <Height>14</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Panier">
+          <TextureName>panier</TextureName>
+          <X>6</X>
+          <Y>13.5</Y>
+          <Width>2</Width>
+          <Height>0.5</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Obstacle">
+          <TextureName>rondin</TextureName>
+          <X>1.9</X>
+          <Y>4.5</Y>
+          <Width>0.25</Width>
+          <Height>0.25</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Obstacle">
+          <TextureName>rondin</TextureName>
+          <X>3.9</X>
+          <Y>6</Y>
+          <Width>0.25</Width>
+          <Height>0.25</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Obstacle">
+          <TextureName>rondin</TextureName>
+          <X>5.9</X>
+          <Y>7.5</Y>
+          <Width>0.25</Width>
+          <Height>0.25</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Obstacle">
+          <TextureName>rondin</TextureName>
+          <X>7.9</X>
+          <Y>9</Y>
+          <Width>0.25</Width>
+          <Height>0.25</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Obstacle">
+          <TextureName>rondin</TextureName>
+          <X>9.9</X>
+          <Y>10.5</Y>
+          <Width>0.25</Width>
+          <Height>0.25</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Obstacle">
+          <TextureName>rondin</TextureName>
+          <X>7.9</X>
+          <Y>12</Y>
+          <Width>0.25</Width>
+          <Height>0.25</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Obstacle">
+          <TextureName>rondin</TextureName>
+          <X>5</X>
+          <Y>12.5</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
+        </ObjetCompositeAbstrait>
+        <ObjetCompositeAbstrait xsi:type="Obstacle">
+          <TextureName>rondin</TextureName>
+          <X>7</X>
+          <Y>12.5</Y>
+          <Width>0.25</Width>
+          <Height>1</Height>
+        </ObjetCompositeAbstrait>
+      </List>
+      <ALier>false</ALier>
+    </ObjetCompositeAbstrait>
+  </List>
+  <ALier>true</ALier>
+</ListeObjet>

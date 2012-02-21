@@ -8,25 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Release\Content\chargement.xnb</Output>
-      <Time>2012-01-31T22:37:00.5036+01:00</Time>
-    </Item>
-    <Item>
-      <Source>planche.bmp</Source>
-      <Name>planche</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Release\Content\planche.xnb</Output>
-      <Time>2012-01-31T22:36:44.1356+01:00</Time>
-    </Item>
-    <Item>
-      <Source>corde.jpg</Source>
-      <Name>corde</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Release\Content\corde.xnb</Output>
-      <Time>2012-01-31T21:45:28.634+01:00</Time>
+      <Time>2012-02-21T11:07:21.5925+01:00</Time>
     </Item>
     <Item>
       <Source>fond.bmp</Source>
@@ -36,15 +18,6 @@
       <Options>None</Options>
       <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Release\Content\fond.xnb</Output>
       <Time>2012-02-01T12:44:49.9651+01:00</Time>
-    </Item>
-    <Item>
-      <Source>selection.bmp</Source>
-      <Name>selection</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Release\Content\selection.xnb</Output>
-      <Time>2012-02-07T10:21:32.13425+01:00</Time>
     </Item>
     <Item>
       <Source>background.png</Source>
@@ -180,6 +153,60 @@
       <Options>None</Options>
       <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Release\Content\menufont.xnb</Output>
       <Time>2012-02-04T18:09:22.4432+01:00</Time>
+    </Item>
+    <Item>
+      <Source>rondin.png</Source>
+      <Name>rondin</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Release\Content\rondin.xnb</Output>
+      <Time>2012-02-21T11:07:24.5409+01:00</Time>
+    </Item>
+    <Item>
+      <Source>planche.jpg</Source>
+      <Name>planche</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Release\Content\planche.xnb</Output>
+      <Time>2012-02-21T11:07:24.5253+01:00</Time>
+    </Item>
+    <Item>
+      <Source>corde.png</Source>
+      <Name>corde</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Release\Content\corde.xnb</Output>
+      <Time>2012-02-21T11:07:24.5253+01:00</Time>
+    </Item>
+    <Item>
+      <Source>panier.png</Source>
+      <Name>panier</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Release\Content\panier.xnb</Output>
+      <Time>2012-02-21T11:07:24.5253+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bille.png</Source>
+      <Name>bille</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Release\Content\bille.xnb</Output>
+      <Time>2012-02-21T11:07:24.5409+01:00</Time>
+    </Item>
+    <Item>
+      <Source>selection.png</Source>
+      <Name>selection</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Release\Content\selection.xnb</Output>
+      <Time>2012-02-21T11:07:24.5409+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

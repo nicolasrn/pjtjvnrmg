@@ -1,0 +1,6 @@
+niveau1;Ours
+niveau2;Poules
+niveau3;Elephants
+niveau4;Elephants
+niveau5;Dauphins
+niveau6;Elephants

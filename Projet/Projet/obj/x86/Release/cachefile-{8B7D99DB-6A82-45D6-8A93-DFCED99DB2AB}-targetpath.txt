@@ -1,8 +1,5 @@
 Content\chargement.xnb
-Content\planche.xnb
-Content\corde.xnb
 Content\fond.xnb
-Content\selection.xnb
 Content\background.xnb
 Content\blank.xnb
 Content\gradient.xnb
@@ -18,3 +15,9 @@ Content\Ours.xnb
 Content\Poules.xnb
 Content\gamefont.xnb
 Content\menufont.xnb
+Content\rondin.xnb
+Content\planche.xnb
+Content\corde.xnb
+Content\panier.xnb
+Content\bille.xnb
+Content\selection.xnb

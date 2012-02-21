@@ -196,8 +196,10 @@ namespace GameStateManagement
                             SingletonWorld.getInstance().getWorld().RemoveController(j);*/
 
                         //relance du jeu ou arrêt bref quelque chose
+                        SingletonWorld.getInstance().reset();
                         level = new Level(listLevel[levelCourant]);
                         level.LoadContent(content, graphics);
+                        fondCourant = level.ListeObjet.Texture;
                         timeTravail = time;
                     }
                 }

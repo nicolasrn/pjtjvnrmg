@@ -27,5 +27,11 @@ namespace Projet.HelperFarseerObject
         {
             return world;
         }
+
+        public void reset()
+        {
+            sworld = null;
+            world = null;
+        }
     }
 }

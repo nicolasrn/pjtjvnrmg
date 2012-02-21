@@ -89,6 +89,11 @@ namespace Projet.Element_de_Jeu.Composites
             }
         }
 
+        public Rectangle Rectangle
+        {
+            get { return this.rect; }
+        }
+
         /// <summary>
         /// ajoute un élément a dessiner
         /// </summary>

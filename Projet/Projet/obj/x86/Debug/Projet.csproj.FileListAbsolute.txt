@@ -27,3 +27,6 @@ C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Proje
 C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\NiveauSavane.xnb
 C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\Ours.xnb
 C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\Poules.xnb
+C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\rondin.xnb
+C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\panier.xnb
+C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\bille.xnb

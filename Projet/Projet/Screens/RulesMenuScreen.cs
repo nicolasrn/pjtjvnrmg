@@ -34,7 +34,7 @@ namespace GameStateManagement
         /// Constructor.
         /// </summary>
         public RulesMenuScreen()
-            : base("Options")
+            : base("Regle")
         {
 
             MenuEntry back = new MenuEntry("Retour");
@@ -63,11 +63,11 @@ namespace GameStateManagement
         /// </summary>
         public override void Draw(GameTime gameTime)
         {
-                /*SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
+                SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
                 SpriteFont font = ScreenManager.Font;
 
                 const string message = "Patientez...";
-
+                
                 // Center the text in the viewport.
                 Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
                 Vector2 viewportSize = new Vector2(viewport.Width, viewport.Height);
@@ -79,7 +79,7 @@ namespace GameStateManagement
                 // Draw the text.
                 spriteBatch.Begin();
                 spriteBatch.DrawString(font, message, textPosition, color);
-                spriteBatch.End();*/
+                spriteBatch.End();
             
         }
     }

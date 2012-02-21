@@ -394,14 +394,14 @@
           <Width>24</Width>
           <Height>1.5</Height>
         </ObjetCompositeAbstrait>
-        <ObjetCompositeAbstrait xsi:type="Sol">
+        <ObjetCompositeAbstrait xsi:type="Mur">
           <TextureName>chargement</TextureName>
           <X>0</X>
           <Y>6</Y>
           <Width>0.5</Width>
           <Height>14</Height>
         </ObjetCompositeAbstrait>
-        <ObjetCompositeAbstrait xsi:type="Sol">
+        <ObjetCompositeAbstrait xsi:type="Mur">
           <TextureName>chargement</TextureName>
           <X>12</X>
           <Y>6</Y>

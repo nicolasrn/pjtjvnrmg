@@ -44,6 +44,11 @@ namespace GameStateManagement
         private List<String> listLevel;
         private List<Texture2D> textureVictoire;
 
+        private Texture2D fondCourant;
+        private Rectangle rectangleFondCourant;
+
+        private Rectangle rectangleBille;
+
         //private SpriteFont font;
 
         private int time = 2000;
@@ -92,8 +97,10 @@ namespace GameStateManagement
             }
 
             level = new Level(listLevel[levelCourant]);
-
             level.LoadContent(content, graphics);
+            fondCourant = level.ListeObjet.Texture;
+            rectangleFondCourant = level.ListeObjet.Rectangle;
+
             //*/
             // once the load has finished, we use ResetElapsedTime to tell the game's
             // timing mechanism that we have just finished a very long frame, and that
@@ -134,6 +141,7 @@ namespace GameStateManagement
             {
                 //*
                 level.Update(gameTime);
+                rectangleBille = level.ListeObjet.getBille().Item.DestinationRectangle;
 
                 if (level.Etat == Etat.VICTOIRE)
                 {
@@ -142,10 +150,31 @@ namespace GameStateManagement
                     if (timeTravail <= 0)
                     {
                         level.delete();
-                        levelCourant = (levelCourant + 1) % listLevel.Count;
-                        level = new Level(listLevel[levelCourant]);
-                        level.LoadContent(content, graphics);
-                        timeTravail = time;
+                        /*foreach (FarseerPhysics.Dynamics.Body b in SingletonWorld.getInstance().getWorld().BodyList)
+                            SingletonWorld.getInstance().getWorld().RemoveBody(b);
+
+                        foreach (FarseerPhysics.Dynamics.Joints.Joint j in SingletonWorld.getInstance().getWorld().JointList)
+                            SingletonWorld.getInstance().getWorld().RemoveJoint(j);
+
+                        foreach (FarseerPhysics.Dynamics.BreakableBody j in SingletonWorld.getInstance().getWorld().BreakableBodyList)
+                            SingletonWorld.getInstance().getWorld().RemoveBreakableBody(j);
+
+                        foreach (FarseerPhysics.Controllers.Controller j in SingletonWorld.getInstance().getWorld().ControllerList)
+                            SingletonWorld.getInstance().getWorld().RemoveController(j);*/
+
+                        //levelCourant = (levelCourant + 1) % listLevel.Count;
+                        if (levelCourant + 1 == listLevel.Count)
+                        {
+                            ScreenManager.AddScreen(new MainMenuScreen(), ControllingPlayer);
+                        }
+                        else
+                        {
+                            levelCourant++;
+                            level = new Level(listLevel[levelCourant]);
+                            level.LoadContent(content, graphics);
+                            fondCourant = level.ListeObjet.Texture;
+                            timeTravail = time;
+                        }
                     }
                 }
                 else if (level.Etat == Etat.DEFAITE)
@@ -153,8 +182,20 @@ namespace GameStateManagement
                     timeTravail -= gameTime.ElapsedGameTime.Milliseconds;
                     if (timeTravail <= 0)
                     {
-                        //relance du jeu ou arrêt bref quelque chose
                         level.delete();
+                        /*foreach (FarseerPhysics.Dynamics.Body b in SingletonWorld.getInstance().getWorld().BodyList)
+                            SingletonWorld.getInstance().getWorld().RemoveBody(b);
+                        
+                        foreach (FarseerPhysics.Dynamics.Joints.Joint j in SingletonWorld.getInstance().getWorld().JointList)
+                            SingletonWorld.getInstance().getWorld().RemoveJoint(j);
+
+                        foreach (FarseerPhysics.Dynamics.BreakableBody j in SingletonWorld.getInstance().getWorld().BreakableBodyList)
+                            SingletonWorld.getInstance().getWorld().RemoveBreakableBody(j);
+
+                        foreach (FarseerPhysics.Controllers.Controller j in SingletonWorld.getInstance().getWorld().ControllerList)
+                            SingletonWorld.getInstance().getWorld().RemoveController(j);*/
+
+                        //relance du jeu ou arrêt bref quelque chose
                         level = new Level(listLevel[levelCourant]);
                         level.LoadContent(content, graphics);
                         timeTravail = time;
@@ -213,17 +254,19 @@ namespace GameStateManagement
             spriteBatch.Begin();
 
             //*
-            level.Draw(gameTime, spriteBatch);
             if (level.Etat == Etat.VICTOIRE)
             {
-                spriteBatch.DrawString(gameFont, "Good Game", new Vector2(150, 250), Color.Red);
-                spriteBatch.Draw(level.ListeObjet.Texture, level.ListeObjet.Rectangle, Color.White);
-                spriteBatch.Draw(textureVictoire[levelCourant], level.ListeObjet.getBille().Item.DestinationRectangle, Color.White);
+                //spriteBatch.DrawString(gameFont, "Good Game", new Vector2(150, 250), Color.Red);
+                spriteBatch.Draw(fondCourant, rectangleFondCourant, Color.White);
+                spriteBatch.Draw(textureVictoire[levelCourant], rectangleBille, Color.White);
             }
             else if (level.Etat == Etat.DEFAITE)
                 spriteBatch.DrawString(gameFont, "Game Over", new Vector2(150, 250), Color.Red);
             else if (level.Etat == Etat.ENCOURS)
-                spriteBatch.DrawString(gameFont, "Encours", new Vector2(150, 250), Color.Red);
+            {
+                level.Draw(gameTime, spriteBatch);
+                //spriteBatch.DrawString(gameFont, "Encours", new Vector2(150, 250), Color.Red);
+            }
             //*/
             spriteBatch.End();
         }

@@ -44,7 +44,7 @@ namespace GameStateManagement
         private List<String> listLevel;
         private List<Texture2D> textureVictoire;
 
-        private SpriteFont font;
+        //private SpriteFont font;
 
         private int time = 2000;
         private int timeTravail;
@@ -76,6 +76,7 @@ namespace GameStateManagement
 
             gameFont = content.Load<SpriteFont>("gamefont");
 
+            //*
             SingletonWorld.getInstance().getWorld();
             timeTravail = time;
 
@@ -93,7 +94,7 @@ namespace GameStateManagement
             level = new Level(listLevel[levelCourant]);
 
             level.LoadContent(content, graphics);
-
+            //*/
             // once the load has finished, we use ResetElapsedTime to tell the game's
             // timing mechanism that we have just finished a very long frame, and that
             // it should not try to catch up.
@@ -109,11 +110,9 @@ namespace GameStateManagement
             content.Unload();
         }
 
-
         #endregion
 
         #region Update and Draw
-
 
         /// <summary>
         /// Updates the state of the game. This method checks the GameScreen.IsActive
@@ -133,6 +132,7 @@ namespace GameStateManagement
 
             if (IsActive)
             {
+                //*
                 level.Update(gameTime);
 
                 if (level.Etat == Etat.VICTOIRE)
@@ -160,6 +160,7 @@ namespace GameStateManagement
                         timeTravail = time;
                     }
                 }
+                //*/
             }
         }
 
@@ -211,17 +212,19 @@ namespace GameStateManagement
 
             spriteBatch.Begin();
 
+            //*
             level.Draw(gameTime, spriteBatch);
             if (level.Etat == Etat.VICTOIRE)
             {
                 spriteBatch.DrawString(gameFont, "Good Game", new Vector2(150, 250), Color.Red);
+                spriteBatch.Draw(level.ListeObjet.Texture, level.ListeObjet.Rectangle, Color.White);
                 spriteBatch.Draw(textureVictoire[levelCourant], level.ListeObjet.getBille().Item.DestinationRectangle, Color.White);
             }
             else if (level.Etat == Etat.DEFAITE)
                 spriteBatch.DrawString(gameFont, "Game Over", new Vector2(150, 250), Color.Red);
             else if (level.Etat == Etat.ENCOURS)
                 spriteBatch.DrawString(gameFont, "Encours", new Vector2(150, 250), Color.Red);
-
+            //*/
             spriteBatch.End();
         }
 

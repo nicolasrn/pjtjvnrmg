@@ -9,6 +9,7 @@
 
 #region Using Statements
 using Microsoft.Xna.Framework;
+//using Projet.Screens;
 #endregion
 
 namespace GameStateManagement
@@ -27,17 +28,20 @@ namespace GameStateManagement
             : base("Main Menu")
         {
             // Create our menu entries.
-            MenuEntry playGameMenuEntry = new MenuEntry("Play Game");
+            MenuEntry playGameMenuEntry = new MenuEntry("Jouer");
+            //MenuEntry rulesMenuEntry = new MenuEntry("Règles");
             //MenuEntry optionsMenuEntry = new MenuEntry("Options");
-            MenuEntry exitMenuEntry = new MenuEntry("Exit");
+            MenuEntry exitMenuEntry = new MenuEntry("Quitter");
 
             // Hook up menu event handlers.
             playGameMenuEntry.Selected += PlayGameMenuEntrySelected;
+            //rulesMenuEntry.Selected += RulesMenuEntrySelected;
             //optionsMenuEntry.Selected += OptionsMenuEntrySelected;
             exitMenuEntry.Selected += OnCancel;
 
             // Add entries to the menu.
             MenuEntries.Add(playGameMenuEntry);
+            //MenuEntries.Add(rulesMenuEntry);
             //MenuEntries.Add(optionsMenuEntry);
             MenuEntries.Add(exitMenuEntry);
 
@@ -73,7 +77,7 @@ namespace GameStateManagement
         /// </summary>
         protected override void OnCancel(PlayerIndex playerIndex)
         {
-            const string message = "Are you sure you want to exit this sample?";
+            const string message = "Voulez vous quitter le jeu ?";
 
             MessageBoxScreen confirmExitMessageBox = new MessageBoxScreen(message);
 
@@ -82,6 +86,13 @@ namespace GameStateManagement
             ScreenManager.AddScreen(confirmExitMessageBox, playerIndex);
         }
 
+        /// <summary>
+        /// When the user wants read rules.
+        /// </summary>
+        void RulesMenuEntrySelected(object sender, PlayerIndexEventArgs e)
+        {
+            ScreenManager.AddScreen(new RulesMenuScreen(), e.PlayerIndex);
+        }
 
         /// <summary>
         /// Event handler for when the user selects ok on the "are you sure

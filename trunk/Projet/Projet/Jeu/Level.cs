@@ -101,8 +101,8 @@ namespace Projet.Jeu
             listeObjet.Update();
             barre.run(gameTime);
 
-            Rectangle a = new Rectangle(bille.Item.BoxRatated.X, bille.Item.BoxRatated.Y, bille.Item.BoxRatated.Width, bille.Item.BoxRatated.Height);
-            Rectangle b = new Rectangle(sol.Item.BoxRatated.X, sol.Item.BoxRatated.Y, sol.Item.BoxRatated.Width, sol.Item.BoxRatated.Height);
+            Rectangle a = new Rectangle(bille.Item.DestinationRectangle.X, bille.Item.DestinationRectangle.Y + 2, bille.Item.DestinationRectangle.Width, bille.Item.DestinationRectangle.Height);
+            Rectangle b = new Rectangle(sol.Item.DestinationRectangle.X, sol.Item.DestinationRectangle.Y, sol.Item.DestinationRectangle.Width, sol.Item.DestinationRectangle.Height);
 
             victoireDelai = !barre.TimeOver;
             if (victoireDelai && victoireCollision) //verification victoire

@@ -42,7 +42,7 @@ namespace Projet.Element_de_Jeu.Composites
 
         protected override void dessin(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
         {
-            item.draw(spriteBatch, Color.White);
+            item.draw(spriteBatch, Color.Transparent);
         }
     }
 }

@@ -21,3 +21,4 @@ Content\bille.xnb
 Content\selection.xnb
 Content\gamefont.xnb
 Content\menufont.xnb
+Content\rulesFont.xnb

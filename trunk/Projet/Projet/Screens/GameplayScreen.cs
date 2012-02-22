@@ -55,6 +55,8 @@ namespace GameStateManagement
         private int timeTravail;
 
         private GraphicsDeviceManager graphics;
+
+        private String message = null;
         #endregion
 
         #region Initialization
@@ -79,7 +81,7 @@ namespace GameStateManagement
 
             graphics = ((Projet.Jeu.Game)ScreenManager.Game).graphics;
 
-            gameFont = content.Load<SpriteFont>("gamefont");
+            gameFont = content.Load<SpriteFont>("rulesFont");
 
             //*
             SingletonWorld.getInstance().getWorld();
@@ -166,7 +168,12 @@ namespace GameStateManagement
                         //levelCourant = (levelCourant + 1) % listLevel.Count;
                         if (levelCourant + 1 == listLevel.Count)
                         {
-                            ScreenManager.AddScreen(new MainMenuScreen(), ControllingPlayer);
+                            timeTravail -= gameTime.ElapsedGameTime.Milliseconds;
+                            if (timeTravail <= 0)
+                            {
+                                ScreenManager.AddScreen(new MainMenuScreen(), ControllingPlayer);
+                                //timeTravail = time;
+                            }
                         }
                         else
                         {
@@ -208,7 +215,7 @@ namespace GameStateManagement
             }
         }
 
-
+        #region input
         /// <summary>
         /// Lets the game respond to player input. Unlike the Update method,
         /// this will only be called when the gameplay screen is active.
@@ -240,7 +247,7 @@ namespace GameStateManagement
 
             }
         }
-
+        #endregion
 
         /// <summary>
         /// Draws the gameplay screen.
@@ -259,9 +266,17 @@ namespace GameStateManagement
             //*
             if (level.Etat == Etat.VICTOIRE)
             {
-                //spriteBatch.DrawString(gameFont, "Good Game", new Vector2(150, 250), Color.Red);
                 spriteBatch.Draw(fondCourant, rectangleFondCourant, Color.White);
                 spriteBatch.Draw(textureVictoire[levelCourant], rectangleBille, Color.White);
+                /*
+                Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
+                Vector2 viewportSize = new Vector2(viewport.Width, viewport.Height);
+                if (message == null)
+                    message = "votre temps : " + gameTime.TotalGameTime;
+                Vector2 textSize = gameFont.MeasureString(message);
+                Vector2 textPosition = (viewportSize - textSize) / 2;
+                textPosition.Y = 50;
+                spriteBatch.DrawString(gameFont, message, textPosition, Color.Red);*/
             }
             else if (level.Etat == Etat.DEFAITE)
                 spriteBatch.DrawString(gameFont, "Game Over", new Vector2(150, 250), Color.Red);

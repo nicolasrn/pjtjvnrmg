@@ -11,6 +11,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 #endregion
 
 namespace GameStateManagement
@@ -24,9 +25,8 @@ namespace GameStateManagement
     {
         #region Fields
 
-
         #endregion
-
+           
         #region Initialization
 
 
@@ -63,11 +63,26 @@ namespace GameStateManagement
         /// </summary>
         public override void Draw(GameTime gameTime)
         {
-                SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
-                SpriteFont font = ScreenManager.Font;
+            SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
+            SpriteFont font = ScreenManager.Game.Content.Load<SpriteFont>("rulesFont");
 
-                const string message = "Patientez...";
-                
+            List<String> mess = new List<String>();
+            int ligne = 1;
+            
+            mess.Add("Règle");
+
+            mess.Add("Il vous faut faire tomber la bille bleu");
+            mess.Add("dans le panier. Pour cela, il vous faudra");
+            mess.Add("résoudre le puzzle qui vous est proposé");
+            mess.Add("en supprimant des liaisons au niveau des cordes.");
+            mess.Add("Vous pouvez utiliser la souris ou ");
+            mess.Add("les touches gauche, droite ainsi que la barre d'espace.");
+            mess.Add("Bon Jeu !!!");
+
+            spriteBatch.Begin();
+
+            foreach (String message in mess)
+            {
                 // Center the text in the viewport.
                 Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
                 Vector2 viewportSize = new Vector2(viewport.Width, viewport.Height);
@@ -76,11 +91,13 @@ namespace GameStateManagement
 
                 Color color = Color.White * TransitionAlpha;
 
+                textPosition.Y = ligne * 50;
                 // Draw the text.
-                spriteBatch.Begin();
                 spriteBatch.DrawString(font, message, textPosition, color);
-                spriteBatch.End();
-            
+
+                ligne++;
+            }
+            spriteBatch.End();
         }
     }
         #endregion

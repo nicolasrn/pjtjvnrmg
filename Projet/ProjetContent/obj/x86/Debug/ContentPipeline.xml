@@ -197,7 +197,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\gamefont.xnb</Output>
-      <Time>2012-02-04T18:09:22.4432+01:00</Time>
+      <Time>2012-02-22T16:34:10.30695+01:00</Time>
     </Item>
     <Item>
       <Source>menufont.spritefont</Source>
@@ -206,7 +206,16 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\menufont.xnb</Output>
-      <Time>2012-02-04T18:09:22.4432+01:00</Time>
+      <Time>2012-02-22T16:34:09.41945+01:00</Time>
+    </Item>
+    <Item>
+      <Source>rulesFont.spritefont</Source>
+      <Name>rulesFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NicolasMac\Documents\Visual Studio 2010\ProjectsXNA\Projet\Projet\Projet\bin\x86\Debug\Content\rulesFont.xnb</Output>
+      <Time>2012-02-22T16:51:19.75695+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

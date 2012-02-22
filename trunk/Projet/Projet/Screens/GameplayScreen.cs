@@ -150,6 +150,7 @@ namespace GameStateManagement
                     if (timeTravail <= 0)
                     {
                         level.delete();
+                        SingletonWorld.getInstance().reset();
                         /*foreach (FarseerPhysics.Dynamics.Body b in SingletonWorld.getInstance().getWorld().BodyList)
                             SingletonWorld.getInstance().getWorld().RemoveBody(b);
 

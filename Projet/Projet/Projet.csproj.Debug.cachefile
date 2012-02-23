@@ -19,19 +19,15 @@ Content\corde.xnb
 Content\panier.xnb
 Content\bille.xnb
 Content\selection.xnb
-Content\gamefont.xnb
-Content\menufont.xnb
-<<<<<<< .mine
 Content\Singes.xnb
 Content\Hiboux.xnb
 Content\CicogneFond.xnb
 Content\Regles.xnb
-Content\Ours2.xnb
 Content\Elephants2.xnb
 Content\Hiboux2.xnb
+Content\Ours2.xnb
 Content\Poules2.xnb
 Content\Singes2.xnb
 Content\Dauphins2.xnb
-=======
-Content\rulesFont.xnb
->>>>>>> .r32
+Content\gamefont.xnb
+Content\menufont.xnb

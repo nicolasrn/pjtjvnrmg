@@ -25,11 +25,11 @@ namespace GameStateManagement
         /// Constructor fills in the menu contents.
         /// </summary>
         public MainMenuScreen()
-            : base("Main Menu")
+            : base("La Cigogne")
         {
             // Create our menu entries.
             MenuEntry playGameMenuEntry = new MenuEntry("Jouer");
-            MenuEntry rulesMenuEntry = new MenuEntry("Regles");
+            MenuEntry rulesMenuEntry = new MenuEntry("Comment jouer");
             //MenuEntry optionsMenuEntry = new MenuEntry("Options");
             MenuEntry exitMenuEntry = new MenuEntry("Quitter");
 

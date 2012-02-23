@@ -267,7 +267,8 @@ namespace GameStateManagement
             if (level.Etat == Etat.VICTOIRE)
             {
                 spriteBatch.Draw(fondCourant, rectangleFondCourant, Color.White);
-                spriteBatch.Draw(textureVictoire[levelCourant], rectangleBille, Color.White);
+                //spriteBatch.Draw(textureVictoire[levelCourant], rectangleBille, Color.White);
+                spriteBatch.Draw(textureVictoire[levelCourant], new Rectangle(50,100,500,500), Color.White);
                 /*
                 Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
                 Vector2 viewportSize = new Vector2(viewport.Width, viewport.Height);

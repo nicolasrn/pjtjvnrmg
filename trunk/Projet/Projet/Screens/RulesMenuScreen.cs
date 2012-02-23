@@ -77,9 +77,6 @@ namespace GameStateManagement
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
             SpriteFont font = ScreenManager.Game.Content.Load<SpriteFont>("rulesFont");
 
-<<<<<<< .mine
-                
-=======
             List<String> mess = new List<String>();
             int ligne = 1;
             
@@ -97,14 +94,12 @@ namespace GameStateManagement
 
             foreach (String message in mess)
             {
->>>>>>> .r32
                 // Center the text in the viewport.
                 Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
 
                 Color color = Color.White * TransitionAlpha;
                 Rectangle fullscreen = new Rectangle(0, 0, viewport.Width, viewport.Height);
 
-                textPosition.Y = ligne * 50;
                 // Draw the text.
                 
 

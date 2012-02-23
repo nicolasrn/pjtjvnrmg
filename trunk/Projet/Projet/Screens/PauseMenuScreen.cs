@@ -26,11 +26,11 @@ namespace GameStateManagement
         /// Constructor.
         /// </summary>
         public PauseMenuScreen()
-            : base("Paused")
+            : base("Pause")
         {
             // Create our menu entries.
-            MenuEntry resumeGameMenuEntry = new MenuEntry("Resume Game");
-            MenuEntry quitGameMenuEntry = new MenuEntry("Quit Game");
+            MenuEntry resumeGameMenuEntry = new MenuEntry("Jouer");
+            MenuEntry quitGameMenuEntry = new MenuEntry("Quitter");
             
             // Hook up menu event handlers.
             resumeGameMenuEntry.Selected += OnCancel;
@@ -52,7 +52,7 @@ namespace GameStateManagement
         /// </summary>
         void QuitGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
-            const string message = "Are you sure you want to quit this game?";
+            const string message = "Voulez vous quitter le jeu ?";
 
             MessageBoxScreen confirmQuitMessageBox = new MessageBoxScreen(message);
 

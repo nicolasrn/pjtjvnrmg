@@ -10,6 +10,7 @@
 #region Using Statements
 using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 #endregion
@@ -24,6 +25,8 @@ namespace GameStateManagement
     class RulesMenuScreen : MenuScreen
     {
         #region Fields
+        ContentManager content;
+        Texture2D backgroundTexture;
 
         #endregion
            
@@ -56,6 +59,14 @@ namespace GameStateManagement
 
         #endregion
 
+        public override void LoadContent()
+        {
+            if (content == null)
+                content = new ContentManager(ScreenManager.Game.Services, "Content");
+
+            backgroundTexture = content.Load<Texture2D>("Regles");
+        }
+
         #region Draw
 
         /// <summary>
@@ -66,6 +77,9 @@ namespace GameStateManagement
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
             SpriteFont font = ScreenManager.Game.Content.Load<SpriteFont>("rulesFont");
 
+<<<<<<< .mine
+                
+=======
             List<String> mess = new List<String>();
             int ligne = 1;
             
@@ -83,17 +97,20 @@ namespace GameStateManagement
 
             foreach (String message in mess)
             {
+>>>>>>> .r32
                 // Center the text in the viewport.
                 Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
-                Vector2 viewportSize = new Vector2(viewport.Width, viewport.Height);
-                Vector2 textSize = font.MeasureString(message);
-                Vector2 textPosition = (viewportSize - textSize) / 2;
 
                 Color color = Color.White * TransitionAlpha;
+                Rectangle fullscreen = new Rectangle(0, 0, viewport.Width, viewport.Height);
 
                 textPosition.Y = ligne * 50;
                 // Draw the text.
-                spriteBatch.DrawString(font, message, textPosition, color);
+                
+
+                spriteBatch.Draw(backgroundTexture, fullscreen,
+                                 new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha));
+
 
                 ligne++;
             }

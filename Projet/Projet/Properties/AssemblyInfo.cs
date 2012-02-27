@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // Les informations générales sur l’assembly sont contrôlées par 
 // les attributs suivants. Modifiez la valeur de ces attributs pour modifier les informations
 // associées à l’assembly.
-[assembly: AssemblyTitle("Projet")]
+[assembly: AssemblyTitle("La Cigogne")]
 [assembly: AssemblyProduct("Projet")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyCompany("")]

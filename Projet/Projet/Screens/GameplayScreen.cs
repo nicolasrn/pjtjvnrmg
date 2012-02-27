@@ -18,6 +18,8 @@ using System.Collections.Generic;
 using Projet.Jeu;
 using Projet.HelperFarseerObject;
 using System.IO;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 #endregion
 
 namespace GameStateManagement
@@ -33,6 +35,9 @@ namespace GameStateManagement
 
         ContentManager content;
         SpriteFont gameFont;
+
+        Boolean play;
+        SoundEffect sound;
 
         float pauseAlpha;
 
@@ -81,7 +86,10 @@ namespace GameStateManagement
 
             graphics = ((Projet.Jeu.Game)ScreenManager.Game).graphics;
 
-            gameFont = content.Load<SpriteFont>("rulesFont");
+            gameFont = content.Load<SpriteFont>("gamefont");
+
+            sound = content.Load<SoundEffect>("sonVictoire");
+            play = false;
 
             //*
             SingletonWorld.getInstance().getWorld();
@@ -147,10 +155,17 @@ namespace GameStateManagement
 
                 if (level.Etat == Etat.VICTOIRE)
                 {
-                    //changement de niveau 
+                    //changement de niveau
+                    if (play == false)
+                    {
+                        play = true;
+                        sound.Play();
+                    }
+
                     timeTravail -= gameTime.ElapsedGameTime.Milliseconds;
                     if (timeTravail <= 0)
                     {
+                        play = false;
                         level.delete();
                         SingletonWorld.getInstance().reset();
                         /*foreach (FarseerPhysics.Dynamics.Body b in SingletonWorld.getInstance().getWorld().BodyList)

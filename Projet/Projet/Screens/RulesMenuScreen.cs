@@ -75,7 +75,7 @@ namespace GameStateManagement
         public override void Draw(GameTime gameTime)
         {
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
-            SpriteFont font = ScreenManager.Game.Content.Load<SpriteFont>("rulesFont");
+            SpriteFont font = ScreenManager.Game.Content.Load<SpriteFont>("gameFont");
 
             List<String> mess = new List<String>();
             int ligne = 1;

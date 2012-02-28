@@ -186,8 +186,9 @@ namespace GameStateManagement
                             timeTravail -= gameTime.ElapsedGameTime.Milliseconds;
                             if (timeTravail <= 0)
                             {
+                                ScreenManager.AddScreen(new BackgroundScreen(),ControllingPlayer);
                                 ScreenManager.AddScreen(new MainMenuScreen(), ControllingPlayer);
-                                //timeTravail = time;
+                              
                             }
                         }
                         else
